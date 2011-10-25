@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  model_id: 1
+  description: MyText
+  year: 1
+  car_type: MyString
+  price: 1
+  horsepower: 1
+  seating_capacity: 1
+  engine: 1
+  fuel_type: MyString
+  towing_capacity: 1
+  body_style: MyString
+  transmission: MyString
+  drive_type: MyString
+
+two:
+  name: MyString
+  model_id: 1
+  description: MyText
+  year: 1
+  car_type: MyString
+  price: 1
+  horsepower: 1
+  seating_capacity: 1
+  engine: 1
+  fuel_type: MyString
+  towing_capacity: 1
+  body_style: MyString
+  transmission: MyString
+  drive_type: MyString

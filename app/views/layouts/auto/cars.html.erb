@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <%= stylesheet_link_tag "auto/style", "auto/reset" %>
+  <%= javascript_include_tag :defaults, "auto/html5", "auto/jquery.jaccordion.0.1",
+  "auto/jquery.jaccordion.0.1.min"  %>
+  <!--[if lt IE 7]>
+    <script type="text/javascript" src="http://info.template-help.com/files/ie6_warning/ie6_script_other.js"></script>
+  <![endif]-->
+  <!--[if lt IE 9]>
+  	<script type="text/javascript" src="js/html5.js"></script>
+  <![endif]-->
+  <script type="text/javascript" language="javascript">
+    $("document").ready(function(){
+      
+      $("#demo-ul").jAccordion();     
+    });
+    </script>
+</head>
+
+<body>
+  <div id="main">
+  	<!-- header -->
+    <header>
+    	<div class="logo">
+      	<a href="index.html"><%= image_tag("auto/logo.png") %></a>
+      </div>
+        <%= render :partial => "layouts/auto/menu" %>
+        <% if content_for?(:sticky_header) %>
+          <div><%= yield(:sticky_header) %></div>
+        <% end %>
+    </header>
+    <section id="banners">
+    	<a href="#"><%= link_to image_tag("auto/banner1.png"), auto_new_cars_path, :discount => "20" %></a>&nbsp;<a href="#"><%= image_tag "auto/banner2.png", :class => "last" %></a>
+    </section>
+    <div class="wrapper">
+      <!-- aside -->
+      <aside id="leftSidebar">
+        <% if content_for?(:left) %>
+            <div><%= yield :left %></div>
+          <% end %>
+      </aside>
+      <!-- content -->
+      <section id="content">
+        <div class="inside">
+          <div class="box">
+          	<div class="inner1">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- aside -->
+      <aside id="rightSidebar">
+        <% if content_for?(:submenu) %>
+          <div><%= yield :submenu %></div>
+        <% end %>
+        <div class="box">
+          <% if content_for?(:right) %>
+            <div><%= yield :right %></div>
+          <% end %>
+        </div>
+      </aside>
+      <!-- content -->
+    </div>
+    
+  </div>
+</body>
+</html>

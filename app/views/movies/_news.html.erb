@@ -1,0 +1,16 @@
+<%= content_for :news do %>
+  <div id="news">
+    <div class="head">
+      <h3>NEWS</h3>
+      <p class="text-right"><%= link_to "See all", news_index_path+"?news_type=movies" %></p>
+    </div>
+    <% for news in @news %>
+      <div class="content">
+        <p class="date"><%= time_ago_in_words(news.created_at) %></p>
+        <h4><%= news.name %></h4>
+        <p><%= news.body %></p>
+        <%= link_to "Read more", news %>
+      </div>
+    <% end %>
+  </div>
+<% end %> 

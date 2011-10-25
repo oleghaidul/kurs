@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+<meta charset="utf-8">
+<%= stylesheet_link_tag "reset", "style", "layout" %>
+<%= javascript_include_tag :defaults, "cufon-yui", "cufon-replace", "Open_Sans_400.font",
+							"Open_Sans_Light_300.font", "Open_Sans_Semibold_600.font",
+							"tms-0.3", "tms_presets", "jquery.easing.1.3", "FF-cash" %>
+
+<!--[if lt IE 7]>
+	<div style=' clear: both; text-align:center; position: relative;'>
+		<a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg" border="0"  alt="" /></a>
+	</div>
+<![endif]-->
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="javascripts/html5.js"></script>
+	<link rel="stylesheet" href="stylesheets/ie.css" type="text/css" media="screen">
+<![endif]-->
+</head>
+<%= yield(:page) %>
+<!-- header -->
+	<div class="bg">
+		<div class="main">
+			<header>
+				<div class="row-1">
+					<h1>
+						<a class="logo" href="index.html">Point.co</a>
+						<strong class="slog">The most creative ideas</strong>
+					</h1>
+					<form id="search-form" action="" method="post" enctype="multipart/form-data">
+						<fieldset>
+							<div class="search-form">					
+								<input type="text" name="search" value="Type Keyword Here" onBlur="if(this.value=='') this.value='Type Keyword Here'" onFocus="if(this.value =='Type Keyword Here' ) this.value=''" />
+								<a href="#" onClick="document.getElementById('search-form').submit()">Search</a>									
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<div class="row-2">
+					<%= render :partial => "layouts/menu" %>
+				</div>
+				  <% if content_for?(:slide) %>
+            <div><%= yield(:slide) %></div>
+          <% end %>
+			</header>
+<!-- content --><div class="ic">More Website Templates  at TemplateMonster.com!</div>
+			<section id="content">
+				<div class="padding">
+          <%= yield %>
+					<div class="box-bg margin-bot">
+						<div class="wrapper">
+							<div class="col-1">
+								<div class="box first">
+									<div class="pad">
+										<div class="wrapper indent-bot">
+											<strong class="numb img-indent2">01</strong>
+											<div class="extra-wrap">
+												<h3 class="color-1"><strong>Careful</strong>Analysis</h3>
+											</div>
+										</div>
+										<div class="wrapper">
+											<a class="button img-indent-r" href="#">>></a>
+											<div class="extra-wrap">
+												Point.co is one of <a class="link" target="_blank" href="http://blog.templatemonster.com/free-website-templates/ ">free website templates</a> created by TemplateMonster.com.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-1">
+								<div class="box second">
+									<div class="pad">
+										<div class="wrapper indent-bot">
+											<strong class="numb img-indent2">02</strong>
+											<div class="extra-wrap">
+												<h3 class="color-2"><strong>Quick</strong>Research</h3>
+											</div>
+										</div>
+										<div class="wrapper">
+											<a class="button img-indent-r" href="#"></a>
+											<div class="extra-wrap">
+												This <a class="link" target="_blank" href="http://blog.templatemonster.com/2011/06/13/free-website-template-jquery-slider/ ">Template</a> goes with two packages – with PSD files and without them.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="box third">
+									<div class="pad">
+										<div class="wrapper indent-bot">
+											<strong class="numb img-indent2">03</strong>
+											<div class="extra-wrap">
+												<h3 class="color-3"><strong>New</strong>Strategies</h3>
+											</div>
+										</div>
+										<div class="wrapper">
+											<a class="button img-indent-r" href="#">>></a>
+											<div class="extra-wrap">
+												It has several pages: <a class="link" href="index.html">Home</a>, <a class="link" href="news.html">News</a>, <a class="link" href="services.html">Services</a>, <a class="link" href="products.html">Products</a>, <a class="link" href="contacts.html">Contacts</a>.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</section>
+<!-- footer -->
+			<footer>
+				<div class="row-top">
+					<div class="row-padding">
+						<div class="wrapper">
+							<div class="col-1">
+								<h4>Address:</h4>
+								<dl class="address">
+									<dt><span>Country:</span>USA</dt>
+									<dd><span>City:</span>San Diego</dd>
+									<dd><span>Address:</span>Beach st. 54</dd>
+									<dd><span>Email:</span><a href="#">lcenter@mail.com</a></dd>
+								</dl>
+							</div>
+							<div class="col-2">
+								<h4>Follow Us:</h4>
+								<ul class="list-services">
+									<li class="item-1"><a href="#">Facebook</a></li>
+									<li class="item-2"><a href="#">Twitter</a></li>
+									<li class="item-3"><a href="#">LinkedIn</a></li>
+								</ul>
+							</div>
+							<div class="col-3">
+								<h4>Why Us:</h4>
+								<ul class="list-1">
+									<li><a href="#">Lorem ipsum dolor</a></li>
+									<li><a href="#">Aonsect adipisic</a></li>
+									<li><a href="#">Eiusmjkod tempor</a></li> 
+									<li><a href="#">Incididunt ut labore</a></li>
+								</ul>
+							</div>
+							<div class="col-4">
+								<div class="indent3">
+									<strong class="footer-logo">Point.<strong>co</strong></strong>
+									<strong class="phone"><strong>Toll Free:</strong> 1-800-567-8934</strong>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row-bot">
+					<div class="aligncenter">
+						<p class="p0"><a rel="nofollow" href="http://www.templatemonster.com/" target="_blank">Website Template</a> by TemplateMonster.com</p>
+						<a href="http://www.templates.com/product/3d-models/" target="_blank">3D Models</a> provided by Templates.com<br>
+						<!-- {%FOOTER_LINK} -->
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+	<script type="text/javascript"> Cufon.now(); </script>
+	<script type="text/javascript">
+		$(function(){
+			$('.slider')._TMS({
+				prevBu:'.prev',
+				nextBu:'.next',
+				playBu:'.play',
+				duration:800,
+				easing:'easeOutQuad',
+				preset:'simpleFade',
+				pagination:false,
+				slideshow:3000,
+				numStatus:false,
+				pauseOnHover:true,
+				banners:true,
+				waitBannerAnimation:false,
+				bannerShow:function(banner){
+					banner
+						.hide()
+						.fadeIn(500)
+				},
+				bannerHide:function(banner){
+					banner
+						.show()
+						.fadeOut(500)
+				}
+			});
+		})
+	</script>
+</body>
+</html>

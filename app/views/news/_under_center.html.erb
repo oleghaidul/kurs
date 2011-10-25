@@ -1,0 +1,46 @@
+<%= content_for :under_center do %>
+<div id="footer">
+    
+    <div class="footbox">
+      <h2>Cars</h2>
+      <ul>
+        <% for news in @news.cars %>
+          <li><%= link_to news.name, news %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="footbox">
+      <h2>Sports</h2>
+      <ul>car
+        <% for news in @news.sports %>
+          <li><%= link_to news.name, news %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="footbox">
+      <h2>Games</h2>
+      <ul>
+        <% for news in @news.games %>
+          <li><%= link_to news.name, news %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="footbox">
+      <h2>Jobs</h2>
+      <ul>
+        <% for news in @news.jobs %>
+          <li><%= link_to news.name, news %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="footbox last">
+      <h2>Movies</h2>
+      <ul>
+        <% for news in @news.movies %>
+          <li><%= link_to news.name, news %></li>
+        <% end %>
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+<% end %>

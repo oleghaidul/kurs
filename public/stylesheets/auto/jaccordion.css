@@ -1,0 +1,34 @@
+ul.jaccordion,
+ul.jaccordion ul{
+	list-style: none;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	width: 250px;
+	
+	font-family: 'arial';
+	font-size: 12px;
+}
+
+ul.jaccordion li{
+	background-color: #acafb5;		
+	border-bottom: 1px dotted #fff;
+}
+
+ul.jaccordion li p{
+	color: #fff;
+	padding: 10px 15px 10px 15px;
+	margin: 0px 0px 0px 0px;
+	cursor: pointer;
+}
+
+ul.jaccordion li ul li{
+	background-color: #e6e6e6;
+	border-bottom: 1px dotted #fff;
+	padding: 10px 15px 10px 15px;	
+}
+
+ul.jaccordion li ul li a{
+	color: #464646;
+	padding: 10px 15px 10px 40px;
+	background:  #e6e6e6 url('../img/icons/next-arrow.png') no-repeat center left;
+}

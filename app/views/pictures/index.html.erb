@@ -1,0 +1,4 @@
+<% for pic in @pictures %>
+	<p><%= pic.name %></p>
+	<%= image_tag pic.image.url %>
+<% end %>

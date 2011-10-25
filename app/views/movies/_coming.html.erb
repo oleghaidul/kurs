@@ -1,0 +1,18 @@
+<%= content_for :coming do %>
+	<div id="coming">
+	  <div class="head">
+	    <h3>COMING SOON<strong>!</strong></h3>
+	    <p class="text-right"><%= link_to "See all", movies_coming_path %></p>
+	  </div>
+	  <% for movie in @movies_coming %>
+	  <div class="content">
+	    <h4><%= movie.name %></h4>
+	    <p class="date"><%= time_ago_in_words(movie.release_date) %></p>
+	    <%= link_to image_tag(movie.pictures.first.image.url), movie %>
+	    <%= movie.description %>
+	  	<%= link_to "Read more", movie %>  
+	  </div>
+	  <div class="cl">&nbsp;</div>
+	</div>
+	<% end %>
+<% end %>

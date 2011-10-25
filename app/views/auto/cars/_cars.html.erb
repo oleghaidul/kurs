@@ -1,0 +1,23 @@
+<table> 
+<tr>
+    <td><h6>Photo</h6></td>
+    <td><h6><%= sort_link @search, :name, "Model" %></h6></td>
+    <td><h6><%= sort_link @search, :price %></h6></td>
+    <td>Views</td>
+  </tr>
+<% for car in @cars %>
+<div class="wrapper">
+  <tr>
+    <td><%= link_to image_tag("auto/img2.jpg", :size => '100x70', :class => "img-indent"), [:auto, car] %></td>
+    <td>
+      <h4>
+        <%=  %>
+        <%= link_to car.year.to_s+" "+car.name, [:auto, car] %>
+      </h4>
+    </td>
+    <td><span class="price fleft">$<%= car.price %></span></td>
+    <td><%= car.likes.size %></td>
+  </tr>
+</div>
+<% end %>
+</table>

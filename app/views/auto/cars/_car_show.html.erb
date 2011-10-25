@@ -1,0 +1,16 @@
+<table>
+	<tr>
+		<td>
+			<% for picture in @car.pictures %>
+				<%= image_tag picture.url %>
+			<% end %>
+		</td>
+		<td>
+			<h4><%= @car.name %></h4>
+			<h4><%= @car.model.name %></h4>
+			<h4>$<%= @car.price %></h4>
+
+		</td>
+	</tr>
+	
+</table>

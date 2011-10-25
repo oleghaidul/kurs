@@ -1,0 +1,15 @@
+
+<%= link_to "New review", new_auto_car_review_path %>
+
+<%= render :partial => "auto/cars/car_show" %>
+<%= render :partial => 'auto/cars/right_show' %>
+
+<h2>Review</h2>
+<% for review in @reviews %>
+	<div class="review">
+		<h4><%= review.name %></h4>
+		<%= review.body %>
+	</div>
+<% end %>
+
+

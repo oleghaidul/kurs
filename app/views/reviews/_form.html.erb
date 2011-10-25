@@ -1,0 +1,13 @@
+<%= form_for [:auto, @car, @review] do |f| %>
+  <%= f.hidden_field :reviewable_id, :value => parent.id %>
+  <%= f.hidden_field :reviewable_type, :value => parent_class.name %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :body, "Comment" %><br />
+    <%= f.text_area :body, :rows => '20', :cols => 45 %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

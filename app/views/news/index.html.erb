@@ -1,0 +1,22 @@
+<%= render :partial => "right" %>
+<%= render :partial => "center" %>
+<%= render :partial => "under_center" %>
+<%= render :partial => "sticky_header" %>
+
+<div id="featured_slide">
+<ul id="featurednews">
+  <% for news in @news %>
+    
+      <li><%= image_tag news.pictures.first.image.url, :width => "400" if news.pictures.exists? %>
+        <div class="panel-overlay">
+          <h2><%= news.name %></h2>
+          <p><%= truncate news.body, :length => 70 %><br />
+            <%= link_to "Read", news %></p>
+        </div>
+      </li>
+    
+
+  <% end %>
+</ul>
+
+</div>

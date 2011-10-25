@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  body: MyText
+  reviewable_id: 1
+  reviewable_type: MyString
+  user_id: 1
+
+two:
+  name: MyString
+  body: MyText
+  reviewable_id: 1
+  reviewable_type: MyString
+  user_id: 1

@@ -1,0 +1,20 @@
+<% content_for :left do %>
+  <h3>Used Cars</h3>
+  <div class="indent">
+  <h4>Body Style</h4>
+  	<ul class="p3">
+      <li><%= link_to "Hatchback", auto_used_cars_path+"?body_style=hatchback" %></li>
+      <li><%= link_to "Coupe", auto_used_cars_path+"?body_style=coupe" %></li>
+      <li><%= link_to "Sedan", auto_used_cars_path+"?body_style=sedan" %></li>
+      <li><%= link_to "Truck", auto_used_cars_path+"?body_style=truck" %></li>
+      <li><%= link_to "SUV", auto_used_cars_path+"?body_style=suv" %></li>
+      <li><%= link_to "Crossover", auto_used_cars_path+"?body_style=crossover" %></li>
+      <li><%= link_to "Convertible", auto_used_cars_path+"?body_style=convertible" %></li>
+      <li><%= link_to "Van", auto_used_cars_path+"?body_style=van" %></li>
+      <li><%= link_to "Wagon", auto_used_cars_path+"?body_style=wagon" %></li>
+    </ul>
+    <ul class="last">
+      <li><%= link_to "All Used Cars", auto_used_cars_path %></li>
+    </ul>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<%= content_for :sticky_header do %>
+  <div class="wrapper col0">
+    <div id="topline">
+      <p><%= current_user.email if user_signed_in? %></p>
+      <ul>
+          <li><%= link_to "Home Page", root_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+          <li class="last"><%= link_to('Edit profile', edit_user_registration_path) %></li>
+          </li>
+        <% else %>
+          <li><%= link_to('Login', new_user_session_path)  %></li>
+          <li class="last"><%= link_to('Register', new_user_registration_path)  %></li>
+        <% end %>
+      </ul>
+      <br class="clear" />
+    </div>
+  </div>
+<% end %>

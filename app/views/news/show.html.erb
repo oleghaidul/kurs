@@ -1,0 +1,13 @@
+<%= render :partial => "sticky_header" %>
+
+<div id="featured_slide">
+  <p><%= @news.name %></p>
+  <p><%= @news.body %></p>
+</div>
+
+
+ <%= content_for :right do %>   
+  <%= link_to "Comments", news_comments_path(@news) %>
+ <% end %> 
+</div>
+

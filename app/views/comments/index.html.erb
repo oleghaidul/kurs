@@ -1,0 +1,9 @@
+<%= render "form" %>
+<h2>Comments</h2>
+<% for comment in @comments %>
+	<div class="comment">
+		<h4><%= comment.title %></h4>
+		<%= comment.body %>
+	</div>
+<% end %>
+

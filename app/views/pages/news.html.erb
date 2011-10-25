@@ -1,0 +1,39 @@
+<%= content_for :page do %>
+	<body id="page2">
+<% end %>
+<div class="wrapper p4">
+	<div class="col-3">
+		<div class="indent">
+			<h2>Latest News</h2>
+			<% for news in @news.main %>
+				<div class="news indent-bot2">
+					<time class="tdate-2" datetime=""><%= time_ago_in_words(news.created_at) %>&nbsp;</time>
+					<p class="p1"><%= link_to news.name, news %></p>
+					<%= news.body %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="col-4">
+		<div class="block-news">
+			<h3 class="color-4 p2">Archive</h3>
+			<div class="wrapper indent-bot">
+				<ul class="list-2">
+					<li><a href="#">May 2011</a></li>
+					<li><a href="#">April 2011</a></li>
+					<li><a href="#">March 2011</a></li>
+					<li><a href="#">February 2011</a></li>
+					<li><a href="#">January 2011</a></li>
+					<li><a href="#">December 2010</a></li>
+					<li><a href="#">November 2010</a></li>
+					<li><a href="#">October 2010</a></li>
+					<li><a href="#">September 2010</a></li>
+					<li><a href="#">August 2010</a></li>
+					<li><a href="#">July 2010</a></li>
+					<li><a href="#">June 2010</a></li>
+				</ul>
+			</div>
+			<a class="button-2" href="#">Previous Years</a>
+		</div>
+	</div>
+</div>

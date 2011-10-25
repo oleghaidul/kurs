@@ -1,0 +1,11 @@
+<%= content_for :right do %>
+	<div class="column">
+	  <ul class="latestnews">
+	    <% for news in @news.limit(3) %>
+		    <li><%= image_tag news.pictures.first.image.url, :width => "100" if news.pictures.exists? %>
+		      <p><strong><%= link_to news.name, news %></strong> <%= truncate news.body, :length => 70 %></p>
+		    </li>
+	    <% end %>
+	  </ul>
+	</div>
+<% end %>

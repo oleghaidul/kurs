@@ -1,0 +1,15 @@
+<%= form_for(@picture, :html => {:multipart => true}) do |f| %>
+
+  <%= f.hidden_field :imageable_id %>
+  <%= f.hidden_field :imageable_type %>
+  
+  <p>
+  	<%= f.label :name %>
+  	<%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

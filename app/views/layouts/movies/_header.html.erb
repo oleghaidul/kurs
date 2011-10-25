@@ -1,0 +1,42 @@
+<div id="header">
+  <h1 id="logo"><a href="#"></a></h1>
+  <div class="social">
+    <p><%= current_user.email if user_signed_in? %></p>
+      <ul>
+          <li><%= link_to "Home Page", root_path %></li> 
+        <% if user_signed_in? %>
+          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li> 
+          <li class="last"><%= link_to('Edit profile', edit_user_registration_path) %></li>
+          </li>
+        <% else %>
+          <li><%= link_to('Login', new_user_session_path)  %></li> 
+          <li class="last"><%= link_to('Register', new_user_registration_path)  %></li>
+        <% end %>
+      </ul>
+  </div>
+  <div id="navigation">
+    <ul>
+      <li><a class="active" href="#">HOME</a></li>
+      <li><a href="#">NEWS</a></li>
+      <li><a href="#">IN THEATERS</a></li>
+      <li><a href="#">COMING SOON</a></li>
+      <li><a href="#">CONTACT</a></li>
+      <li><a href="#">ADVERTISE</a></li>
+    </ul>
+  </div>
+  <div id="sub-navigation">
+    <ul>
+      <li><%= link_to "SHOW ALL", movies_path %></li>
+      <li><%= link_to "LATEST MOVIES", movies_latest_path %></li>
+      <li><%= link_to "TOP RATED", movies_top_rated_path %></li>
+      <li><a href="#">MOST COMMENTED</a></li>
+    </ul>
+    <div id="search">
+      <form action="#" method="get" accept-charset="utf-8">
+        <label for="search-field">SEARCH</label>
+        <input type="text" name="search field" value="Enter search here" id="search-field" class="blink search-field"  />
+        <input type="submit" value="GO!" class="search-button" />
+      </form>
+    </div>
+  </div>
+</div>
