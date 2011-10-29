@@ -1,5 +1,5 @@
 class ReviewsController < InheritedResources::Base
 	layout 'auto/cars'
-	belongs_to :car
+	belongs_to :car, :polymorphic => true
 
 end

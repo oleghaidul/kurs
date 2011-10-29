@@ -1,6 +1,6 @@
 <%= form_for [:auto, @car, @review] do |f| %>
-  <%= f.hidden_field :reviewable_id, :value => parent.id %>
-  <%= f.hidden_field :reviewable_type, :value => parent_class.name %>
+  <%= f.hidden_field :reviewable_id, :value => @car.id %>
+  <%= f.hidden_field :reviewable_type, :value => "Car" %>
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
