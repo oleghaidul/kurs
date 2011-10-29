@@ -1,10 +1,10 @@
 class MoviesController < InheritedResources::Base
 	layout 'movies/movies'
+	before_filter :load_search
 	
 	def index
-		@movies_coming = Movie.coming.limit(5)
-		@movies_last = Movie.recent.limit(12)
-		@movies_top_rated = Movie.top_rated.limit(12)
+
+		@movies = Movie.scoped
 		@news = News.movies.limit(5)
 	end
 
@@ -31,5 +31,22 @@ class MoviesController < InheritedResources::Base
 		@movies.liked_by current_user
 		redirect_to :back, :notice => "Thanx"
 	end
+
+	def top_commented
+		@movies = Movie.top_commented
+		@type = "MOST COMMENTED"
+		render "movies"
+	end
+
+	def search
+		@search = Movie.search(params[:search])
+		@movies = @search.all
+	end
+
+	private
+
+		def load_search
+			@search = Movie.search(params[:search])
+		end
 	
 end

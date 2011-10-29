@@ -28,10 +28,11 @@
       </tr>
       <tr>
         <td><h4>Release</h4></td>
-        <td><%= time_ago_in_words @movie.release_date %></td>
+        <td><%= time_ago_in_words @movie.release_date if !@movie.release_date.nil? %></td>
       </tr>
     </table>
   </div>
   <%= button_to "Like", :action => "votes", :id => @movie.id if user_signed_in? %>
   <div class="description"><%= @movie.description %></div>
+  <p><%= link_to "Comments", movie_comments_path(@movie) %></p>
 </div>

@@ -4,7 +4,7 @@
 	    <h3>COMING SOON<strong>!</strong></h3>
 	    <p class="text-right"><%= link_to "See all", movies_coming_path %></p>
 	  </div>
-	  <% for movie in @movies_coming %>
+	  <% for movie in @movies.coming.limit(5) %>
 	  <div class="content">
 	    <h4><%= movie.name %></h4>
 	    <p class="date"><%= time_ago_in_words(movie.release_date) %></p>

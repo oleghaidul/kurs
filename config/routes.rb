@@ -25,10 +25,12 @@ Kurs::Application.routes.draw do
   match 'movies/latest' => 'movies#latest'
   match 'movies/top_rated' => 'movies#top_rated'
   match 'movies/coming' => 'movies#coming'
+  match 'movies/top_commented' => 'movies#top_commented'
   match 'movies/votes' => 'movies#votes'
   match 'movies/comments' => 'movies#index'
+  match 'movies/search' => "movies#search"
 
-  resources :movies do
+  resources :movies, :only => [:index, :show] do
     resources :comments
   end
 

@@ -1,9 +1,9 @@
 <div class="box">
   <div class="head">
-    <h2>MOST COMMENTED</h2>
-    <p class="text-right"><a href="#">See all</a></p>
+    <h2>SEARCH RESULT</h2>
+    <p class="text-right">SEARCH RESULT</p>
   </div>
-  <% for movie in @movies.top_commented.limit(12) %>
+  <% for movie in @movies %>
   <div class="movie">
     <div class="movie-image"><span class="name"><%= movie.name %></span>
       <%= link_to image_tag(movie.pictures.first.image.url, :width => 152), movie %>

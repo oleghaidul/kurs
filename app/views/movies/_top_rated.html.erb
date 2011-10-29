@@ -3,7 +3,7 @@
     <h2>TOP RATED</h2>
     <p class="text-right"><%= link_to "See all", movies_top_rated_path %></p>
   </div>
-  <% for movie in @movies_top_rated %>
+  <% for movie in @movies.top_rated.limit(12) %>
   <div class="movie">
     <div class="movie-image"><span class="name"><%= movie.name %></span>
       <%= link_to image_tag(movie.pictures.first.image.url, :width => 152), movie %>

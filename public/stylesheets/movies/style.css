@@ -139,6 +139,11 @@ h1#logo a {
 	border-bottom:1px dashed #666;
 	padding:8px 0;
 }
+
+#sub-navigation ul li a.active, #sub-navigation ul li a:hover {
+	color:#d91d2a;
+}
+
 #sub-navigation ul {
 	list-style:none;
 }

@@ -9,7 +9,7 @@ class Movie < ActiveRecord::Base
 
 	scope :top_rated, order("rate DESC")
 	scope :recent, order("created_at DESC")
-
+	scope :top_commented, order("comments_count DESC")
 	scope :coming, where("release_date > ?", Time.now)
 
 	
