@@ -1,9 +1,7 @@
 <table>
 	<tr>
 		<td>
-			<% for picture in @car.pictures %>
-				<%= image_tag picture.url %>
-			<% end %>
+			<%= image_tag @car.pictures.first.image.url, :width => 150 if @car.pictures.exists? %>
 		</td>
 		<td>
 			<h4><%= @car.name %></h4>
