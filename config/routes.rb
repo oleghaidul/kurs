@@ -8,6 +8,10 @@ Kurs::Application.routes.draw do
 
   devise_for :users
 
+  resources :users do
+    resources :carts
+  end
+
   match 'auto/news' => 'auto/cars#news'
   
   namespace :auto do
@@ -18,10 +22,10 @@ Kurs::Application.routes.draw do
       resources :options
       resources :reviews
     end
-    resources :categories
+    
   end
-
-
+  resources :line_items, :only => [:create, :destroy]
+  
   match 'movies/latest' => 'movies#latest'
   match 'movies/top_rated' => 'movies#top_rated'
   match 'movies/coming' => 'movies#coming'
@@ -43,9 +47,11 @@ Kurs::Application.routes.draw do
     resources :comments
   end
 
-  resources :products, :only => [:index, :show]
+  
 
-  resources :categories, :only => [:index, :show]
+  resources :categories, :only => [:index, :show] do
+    resources :products, :only => [:index, :show]
+  end
   
 
   root :to => 'pages#home'

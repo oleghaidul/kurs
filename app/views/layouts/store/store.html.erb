@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<title>Electronix Store</title>
+<!--[if IE 6]>
+<link rel="stylesheet" type="text/css" href="stylesheets/store/iecss.css" />
+<![endif]-->
+<%= stylesheet_link_tag "store/style" %>
+<%= javascript_include_tag :defaults, "store/boxOver" %>
+</head>
+<body>
+
+<div id="main_container">
+	<div class="top_bar">
+    	<div class="top_search">
+        	<div class="search_text"><a href="#">Advanced Search</a></div>
+            <input type="text" class="search_input" name="search" />
+            <input type="image" src="/images/store/search.gif" class="search_bt"/>
+        </div>
+        
+        <div class="languages">
+        	<div class="lang_text">Languages:</div>
+            <a href="#" class="lang"><img src="/images/store/en.gif" alt="" title="" border="0" /></a>
+            <a href="#" class="lang"><img src="/images/store/de.gif" alt="" title="" border="0" /></a>       
+        </div>
+    
+    </div>
+	
+    <%= render :partial => "layouts/store/header" %> 
+    
+   <div id="main_content"> 
+   
+            <div id="menu_tab">
+            <div class="left_menu_corner"></div>
+                    <ul class="menu">
+                         <li><a href="index.html" class="nav1">  Home </a></li>
+                         <li class="divider"></li>
+                         <li><a href="#" class="nav2">Products</a></li>
+                         <li class="divider"></li>
+                         <li><a href="#" class="nav3">Specials</a></li>
+                         <li class="divider"></li>
+                         <li><a href="#" class="nav4">My account</a></li>
+                         <li class="divider"></li>
+                         <li><a href="#" class="nav4">Sign Up</a></li>
+                         <li class="divider"></li>                         
+                         <li><a href="#" class="nav5">Shipping </a></li>
+                         <li class="divider"></li>
+                         <li><a href="contact.html" class="nav6">Contact Us</a></li>
+                         <li class="divider"></li>
+                         <li class="currencies">Currencies
+                         <select>
+                         <option>US Dollar</option>
+                         <option>Euro</option>
+                         </select>
+                         </li>
+                    </ul>
+
+             <div class="right_menu_corner"></div>
+            </div><!-- end of menu tab -->
+            
+    <div class="crumb_navigation">
+    Navigation: <span class="current">Home</span>
+    
+    </div>        
+    
+    
+   <%= render :partial => "layouts/store/left" %>
+   
+   
+   <div class="center_content">
+   	
+    <%= yield %>
+   
+   </div><!-- end of center content -->
+   
+   <%= render :partial => "layouts/store/right" %> 
+   
+            
+   </div><!-- end of main content -->
+   
+   
+   
+   <div class="footer">
+   
+
+        <div class="left_footer">
+        <img src="/images/store/footer_logo.png" alt="" title="" width="170" height="49"/>
+        </div>
+        
+        <div class="center_footer">
+        Template name. All Rights Reserved 2008<br />
+        <a href="http://csscreme.com/freecsstemplates/" title="free templates"><img src="/images/store/csscreme.jpg" alt="free templates" title="free templates" border="0" /></a><br />
+        <img src="/images/store/payment.gif" alt="" title="" />
+        </div>
+        
+        <div class="right_footer">
+        <a href="index.html">home</a>
+        <a href="details.html">about</a>
+        <a href="details.html">sitemap</a>
+        <a href="details.html">rss</a>
+        <a href="contact.html">contact us</a>
+        </div>   
+   
+   </div>                 
+
+
+</div>
+<!-- end of main_container -->
+</body>
+</html>

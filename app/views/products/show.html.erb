@@ -1,0 +1,55 @@
+<div class="center_title_bar"><%= @product.name %></div>
+    
+    	<div class="prod_box_big">
+        	<div class="top_prod_box_big"></div>
+            <div class="center_prod_box_big">            
+                 
+                 <div class="product_img_big">
+                 <a href="javascript:popImage('/images/store/big_pic.jpg','Some Title')" title="header=[Zoom] body=[&nbsp;] fade=[on]"><img src="/images/store/laptop.gif" alt="" title="" border="0" /></a>
+                 <div class="thumbs">
+                 <a href="#" title="header=[Thumb1] body=[&nbsp;] fade=[on]"><img src="/images/store/thumb1.gif" alt="" title="" border="0" /></a>
+                 <a href="#" title="header=[Thumb2] body=[&nbsp;] fade=[on]"><img src="/images/store/thumb1.gif" alt="" title="" border="0" /></a>
+                 <a href="#" title="header=[Thumb3] body=[&nbsp;] fade=[on]"><img src="/images/store/thumb1.gif" alt="" title="" border="0" /></a>
+                 <a href="#" title="header=[Thumb1] body=[&nbsp;] fade=[on]"><img src="/images/store/thumb1.gif" alt="" title="" border="0" /></a>
+                 <a href="#" title="header=[Thumb2] body=[&nbsp;] fade=[on]"><img src="/images/store/thumb1.gif" alt="" title="" border="0" /></a>
+                 <a href="#" title="header=[Thumb3] body=[&nbsp;] fade=[on]"><img src="/images/store/thumb1.gif" alt="" title="" border="0" /></a>
+                 <a href="#" title="header=[Thumb1] body=[&nbsp;] fade=[on]"><img src="/images/store/thumb1.gif" alt="" title="" border="0" /></a>
+                 <a href="#" title="header=[Thumb2] body=[&nbsp;] fade=[on]"><img src="/images/store/thumb1.gif" alt="" title="" border="0" /></a>
+                 <a href="#" title="header=[Thumb3] body=[&nbsp;] fade=[on]"><img src="/images/store/thumb1.gif" alt="" title="" border="0" /></a>
+                 <a href="#" title="header=[Thumb1] body=[&nbsp;] fade=[on]"><img src="/images/store/thumb1.gif" alt="" title="" border="0" /></a>
+                 <a href="#" title="header=[Thumb2] body=[&nbsp;] fade=[on]"><img src="/images/store/thumb1.gif" alt="" title="" border="0" /></a>
+                 <a href="#" title="header=[Thumb3] body=[&nbsp;] fade=[on]"><img src="/images/store/thumb1.gif" alt="" title="" border="0" /></a>
+                 </div>
+                 </div>
+                     <div class="details_big_box">
+                         <div class="product_title_big"><%= @product.name %></div>
+                         <div class="specifications">
+                            Assignment: <span class="blue"><%= @product.assignment %></span><br />
+
+                            Design: <span class="blue"><%= @product.design %></span><br />
+                            
+                            Construction: <span class="blue"><%= @product.construction %></span><br />
+                            
+                            Description: <span class="blue"><%= @product.description %>$</span><br />
+                         </div>
+                         <div class="prod_price_big"><span class="reduce">350$</span>
+                            <span class="price"><%= @product.price %>$</span></div>
+                         
+                         <a href="#" class="addtocart">add to cart</a>
+                         <a href="#" class="compare">compare</a>
+                     </div>   
+                                          
+            </div>
+            <div class="bottom_prod_box_big"></div>                                
+        </div>
+
+        <%= button_to "Add to cart", line_items_path(:product_id => @product), :remote => true %>
+
+
+<%= content_for :category do %>
+  <ul class="left_menu">
+      <% for category in @categories %>
+        <li class="odd"><%= link_to category.name, category %></li>
+      <% end %>  
+        </ul> 
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111029190438) do
+ActiveRecord::Schema.define(:version => 20111109135823) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -66,12 +66,36 @@ ActiveRecord::Schema.define(:version => 20111029190438) do
     t.datetime "updated_at"
   end
 
+  create_table "carts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "category"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "comments", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "commentable_id"
     t.string   "commentable_type"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "line_items", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "cart_id"
+    t.integer  "quantity",   :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -137,6 +161,18 @@ ActiveRecord::Schema.define(:version => 20111029190438) do
     t.integer  "imageable_id"
     t.string   "imageable_type"
     t.datetime "image_updated_at"
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.string   "assignment"
+    t.string   "design"
+    t.string   "construction"
+    t.integer  "price"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "reviews", :force => true do |t|
