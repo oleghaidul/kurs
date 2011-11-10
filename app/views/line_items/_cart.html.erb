@@ -1,1 +1,6 @@
-<%= @cart.line_items.size %> items <br /><span class="border_cart"></span>Total: <span class="price"><%= @cart.total_price %></span>
+<% for item in @cart.line_items.includes(:product) %>
+ <%= item.product.name %> &times; <%= item.quantity %> <br />
+<% end %>
+ <span class="border_cart"></span>Total: <span class="price"><%= @cart.total_price %></span>
+ <br />
+ <%= link_to @cart.name, [@cart.user, @cart] %>

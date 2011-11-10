@@ -22,7 +22,7 @@ class Cart < ActiveRecord::Base
   end
 
   def total_price
-    line_items.to_a.sum(&:full_price)
+    line_items.includes(:product).to_a.sum(&:full_price)
   end
 
 end

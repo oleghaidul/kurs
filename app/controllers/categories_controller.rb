@@ -1,5 +1,6 @@
 class CategoriesController < InheritedResources::Base
 	layout "store/store"
+	before_filter :authenticate_user!
 	before_filter :load_cart
 
 	def index
