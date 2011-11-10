@@ -9,9 +9,13 @@
         </div>
         <div class="prod_price">
           <% for item in cart.line_items %>
-            <div class="product_title"><%= link_to item.product.name, [item.product.category, item.product] %></div>
+            <div class="product_title">
+              <%= link_to item.product.name, [item.product.category, item.product] %>
+              &times;<%= item.quantity %>
+            </div>
+
           <% end %>
-          <p>Total: <span class="price"> 500$</span></p>
+          <p>Total: <span class="price">500$</span></p>
         </div>   
       </div>
   

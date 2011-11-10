@@ -44,7 +44,7 @@
 <%= content_for :category do %>
   <ul class="left_menu">
       <% for category in @categories %>
-        <li class="odd"><%= link_to category.name, category %></li>
+        <li class="<%= cycle :odd, :even %>"><%= link_to category.name, category %></li>
       <% end %>  
         </ul> 
 <% end %>

@@ -1,5 +1,6 @@
 class CategoriesController < InheritedResources::Base
 	layout "store/store"
+	before_filter :load_cart
 
 	def index
 		super do
@@ -11,6 +12,10 @@ class CategoriesController < InheritedResources::Base
 		super do
 			@products = @category.products
 		end	
+	end
+
+	def load_cart
+		@cart = current_user.carts.last
 	end
 
 end

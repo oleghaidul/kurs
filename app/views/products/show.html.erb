@@ -34,8 +34,9 @@
                          </div>
                          <div class="prod_price_big"><span class="reduce">350$</span>
                             <span class="price"><%= @product.price %>$</span></div>
-                         
-                         <a href="#" class="addtocart">add to cart</a>
+                         <%= button_to "Add to cart", line_items_path(:product_id => @product), 
+                                                      :remote => true,
+                                                      :class => "addtocart" %>
                          <a href="#" class="compare">compare</a>
                      </div>   
                                           
@@ -43,13 +44,13 @@
             <div class="bottom_prod_box_big"></div>                                
         </div>
 
-        <%= button_to "Add to cart", line_items_path(:product_id => @product), :remote => true %>
+
 
 
 <%= content_for :category do %>
   <ul class="left_menu">
       <% for category in @categories %>
-        <li class="odd"><%= link_to category.name, category %></li>
+        <li class="<%= cycle :odd, :even %>"><%= link_to category.name, category %></li>
       <% end %>  
         </ul> 
 <% end %>

@@ -1,19 +1,22 @@
 class LineItemsController < ApplicationController
-	before_filter :authenticate_user!
+	
 	def create
 		@cart = current_cart
     product = Product.find(params[:product_id])
     if @cart.nil?
       @cart = Cart.create(:name => "MyCart", :user_id => current_user.id)
-      if @cart.add_product(product.id).save
-      	
-        #redirect_to [current_user, @cart]
+      if @cart.add_product(product.id, @cart.id).save
       end
     else
-      if @cart.add_product(product.id).save
-        #redirect_to [@cart.user, @cart]
+      if @cart.add_product(product.id, @cart.id).save
       end
     end
+  end
+
+  def destroy
+    @line_item = LineItem.find(params[:id])
+    @line_item.destroy
+    @cart = current_cart
   end
 
   private 
