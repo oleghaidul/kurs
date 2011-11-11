@@ -9,13 +9,8 @@ class CategoriesController < InheritedResources::Base
 		end
 	end
 
-	def show
-		super do
-			@products = @category.products
-		end	
-	end
-
 	def load_cart
+		@categories = Category.all
 		@cart = current_user.carts.last
 	end
 

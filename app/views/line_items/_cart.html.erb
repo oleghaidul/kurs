@@ -1,6 +1,14 @@
-<% for item in @cart.line_items.includes(:product) %>
- <%= item.product.name %> &times; <%= item.quantity %> <br />
-<% end %>
- <span class="border_cart"></span>Total: <span class="price"><%= @cart.total_price %></span>
- <br />
- <%= link_to @cart.name, [@cart.user, @cart] %>
+<div class="cart_title"><%= @cart.name %></div>
+
+<div class="cart_details">
+	<% for item in @cart.line_items.includes(:product) %>
+	 <%= item.product.name %> &times; <%= item.quantity %> <br />
+	<% end %>
+	 <span class="border_cart"></span>Total: <span class="price"><%= @cart.total_price %></span>
+	 <br />
+	 <div class="cart_icon"><%= link_to image_tag("/images/store/shoppingcart.png", 
+	 									:alt => "", 
+	 									:title => "",
+	 									:width => 48), [@cart.user, @cart], 
+	 									:title => "header=[Checkout] body=[&nbsp;] fade=[on]" %></div>
+</div>

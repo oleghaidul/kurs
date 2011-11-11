@@ -385,9 +385,7 @@ padding:5px 0 0 0;
 }
 .shopping_cart{
 width:195px;
-height:84px;
 text-align:center;
-background:url(../../images/store/cart_bg.gif) no-repeat center;
 }
 .cart_title{
 font-size:12px;
@@ -398,13 +396,11 @@ padding:8px 0 0 0;
 }
 .cart_details{
 width:115px;
-float:left;
 padding:5px 0 0 15px;
 text-align:left;
 }
 .cart_icon{
-float:left;
-padding:5px 0 0 5px;
+padding:5px 0 0 65px;
 }
 span.border_cart{
 width:100px;

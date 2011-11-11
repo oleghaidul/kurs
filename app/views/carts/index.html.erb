@@ -8,7 +8,7 @@
           <%= cart.name %>
         </div>
         <div class="prod_price">
-          <% for item in cart.line_items %>
+          <% for item in cart.line_items.includes(:product => :category) %>
             <div class="product_title">
               <%= link_to item.product.name, [item.product.category, item.product] %>
               &times;<%= item.quantity %>

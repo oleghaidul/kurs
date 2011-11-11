@@ -1,0 +1,15 @@
+<div class="prod_box">
+	<div class="top_prod_box"></div>
+    <div class="center_prod_box">            
+         <div class="product_title"><a href="details.html"><%= link_to product.name, category_product_path(product.category, product) %></a></div>
+         <div class="product_img"><a href="details.html"><img src="/images/store/laptop.gif" alt="" title="" border="0" /></a></div>
+         <div class="prod_price"><span class="reduce"></span> <span class="price"><%= product.price %>$</span></div>                        
+    </div>
+    <div class="bottom_prod_box"></div>             
+    <div class="prod_details_tab">
+    <%= button_to "Add to cart", line_items_path(:product_id => product.id), 
+                                                :remote => true,
+                                                :class => "addtocart" %>
+    <%= link_to "details", category_product_path(product.category, product), :class => "prod_details" %>
+    </div>
+</div>
