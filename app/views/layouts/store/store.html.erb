@@ -19,10 +19,25 @@
             <input type="image" src="/images/store/search.gif" class="search_bt"/>
         </div>
         
+
         <div class="languages">
-        	<div class="lang_text">Languages:</div>
-            <a href="#" class="lang"><img src="/images/store/en.gif" alt="" title="" border="0" /></a>
-            <a href="#" class="lang"><img src="/images/store/de.gif" alt="" title="" border="0" /></a>       
+        	<div class="lang_text"><%= link_to "Home Page", root_path %></div>
+            <div class="lang_text"><%= current_user.email if user_signed_in? %></div>
+                <% if user_signed_in? %>
+	                <div class="lang_text">
+	                    <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "lang") %>
+	                </div>
+	                <div class="lang_text">
+	                    <%= link_to('Edit profile', edit_user_registration_path, :class => "lang") %>
+	                </div>
+                <% else %>
+	                <div class="lang_text">
+	                    <%= link_to('Login', new_user_session_path, :class => "lang")  %>
+	                </div>
+	                <div class="lang_text">
+	                    <%= link_to('Register', new_user_registration_path, :class => "lang")  %>
+	                </div>
+                <% end %>     
         </div>
     
     </div>

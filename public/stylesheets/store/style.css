@@ -54,15 +54,20 @@ float:left;
 padding:2px 0 0 15px;
 }
 .languages{
-float:right;
-width:150px;
 padding:8px 0 0 0;
 }
+
 .lang_text{
 float:left;
-padding:0 5px 0 0;
-color:#b3adad;
+padding:3px 5px 0 20px;
+color: #grey;
 }
+
+.lang_text a {
+	color: white;
+	text-decoration: none;
+}
+
 a.lang{
 display:block;
 float:left;
