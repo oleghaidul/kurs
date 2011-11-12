@@ -14,30 +14,18 @@
 <div id="main_container">
 	<div class="top_bar">
     	<div class="top_search">
-        	<div class="search_text"><a href="#">Advanced Search</a></div>
-            <input type="text" class="search_input" name="search" />
-            <input type="image" src="/images/store/search.gif" class="search_bt"/>
+        	<%= form_tag categories_path, :method => 'get', :id => "products_search" do %>
+              <p>
+                <%= text_field_tag :search, params[:search] %>
+                <%= submit_tag "Search", :name => nil %>
+              </p>
+            <% end %>
         </div>
         
 
         <div class="languages">
         	<div class="lang_text"><%= link_to "Home Page", root_path %></div>
-            <div class="lang_text"><%= current_user.email if user_signed_in? %></div>
-                <% if user_signed_in? %>
-	                <div class="lang_text">
-	                    <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "lang") %>
-	                </div>
-	                <div class="lang_text">
-	                    <%= link_to('Edit profile', edit_user_registration_path, :class => "lang") %>
-	                </div>
-                <% else %>
-	                <div class="lang_text">
-	                    <%= link_to('Login', new_user_session_path, :class => "lang")  %>
-	                </div>
-	                <div class="lang_text">
-	                    <%= link_to('Register', new_user_registration_path, :class => "lang")  %>
-	                </div>
-                <% end %>     
+            <div class="lang_text">Hello, <%= current_user.email if user_signed_in? %></div>
         </div>
     
     </div>
@@ -53,31 +41,26 @@
                          <li class="divider"></li>
                          <li><%= link_to "Products", categories_path, :class => "nav2" %></li>
                          <li class="divider"></li>
-                         <li><a href="#" class="nav3">Specials</a></li>
+                         <% if user_signed_in? %>
+                         <li><%= link_to('My account', edit_user_registration_path, :class => "nav4") %></li>
                          <li class="divider"></li>
-                         <li><a href="#" class="nav4">My account</a></li>
+                         <li><%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "nav4") %></li>
+                         <li class="divider"></li>       
+                         <% else %>
+                         <li><%= link_to('Login', new_user_session_path, :class => "nav4")  %></li>
                          <li class="divider"></li>
-                         <li><a href="#" class="nav4">Sign Up</a></li>
-                         <li class="divider"></li>                         
+                         <li><%= link_to('Register', new_user_registration_path, :class => "nav4")  %></li>
+                         <li class="divider"></li>   
+                         <% end %>                  
                          <li><a href="#" class="nav5">Shipping </a></li>
                          <li class="divider"></li>
                          <li><a href="contact.html" class="nav6">Contact Us</a></li>
-                         <li class="divider"></li>
-                         <li class="currencies">Currencies
-                         <select>
-                         <option>US Dollar</option>
-                         <option>Euro</option>
-                         </select>
-                         </li>
                     </ul>
 
              <div class="right_menu_corner"></div>
             </div><!-- end of menu tab -->
             
-    <div class="crumb_navigation">
-    Navigation: <span class="current">Home</span>
-    
-    </div>        
+           
     
     
    <%= render :partial => "layouts/store/left" %>

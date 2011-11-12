@@ -47,11 +47,13 @@ Kurs::Application.routes.draw do
     resources :comments
   end
 
-  
-
   resources :categories, :only => [:index, :show] do
     resources :products, :only => [:index, :show]
   end
+
+  resources :manufacturers, :only => [:show]
+
+  resources :products, :only => [:index]
   
 
   root :to => 'pages#home'

@@ -5,5 +5,7 @@ class CartsController < InheritedResources::Base
 
 	def load_cart
 		@cart = current_user.carts.last
+		@manufacturers = Manufacturer.all
+		@categories = Category.all
 	end
 end

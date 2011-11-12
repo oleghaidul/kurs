@@ -1,0 +1,5 @@
+  <ul class="left_menu">
+      <% for manufacturer in @manufacturers %>
+        <li class="<%= cycle :odd, :even %>"><%= link_to manufacturer.name, manufacturer %></li>
+      <% end %>
+        </ul> 

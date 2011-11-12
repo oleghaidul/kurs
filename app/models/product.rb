@@ -1,5 +1,14 @@
 class Product < ActiveRecord::Base
 	belongs_to :category
+	belongs_to :manufacturer
 	has_many :line_items
-	default_scope includes(:category)
+
+	def self.search(search)
+		if search
+			where('name LIKE ?', "%#{search}%")
+		else
+			scoped
+		end
+	end
+
 end
