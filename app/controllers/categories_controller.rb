@@ -6,7 +6,7 @@ class CategoriesController < InheritedResources::Base
 
 	def index
 		super do
-			@products = Product.includes(:category).search(params[:search])
+			@products = Product.includes(:category).search(params[:search], params[:category])
 		end
 	end
 
