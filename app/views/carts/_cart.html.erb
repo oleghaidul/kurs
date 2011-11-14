@@ -1,3 +1,2 @@
-<div class="center_title_bar"><%= cart.name %></div>
+<div class="center_title_bar <%= cart.active %>"><%= cart.name %></div>
 	<%= render cart.line_items.includes(:product => :category) %>
-</div>

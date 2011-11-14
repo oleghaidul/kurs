@@ -1,32 +1,3 @@
 
-<div class="center_title_bar"><%= parent.email %> carts</div>
     
-	<% for cart in parent.carts %>
-  <div class="prod_box">
-  	<div class="top_prod_box"></div>
-      <div class="center_prod_box">        
-        <div class="product_title_big">
-          <%= cart.name %>
-        </div>
-        <div class="prod_price">
-          <% for item in cart.line_items.includes(:product => :category) %>
-            <div class="product_title">
-              <%= link_to item.product.name, [item.product.category, item.product] %>
-              &times;<%= item.quantity %>
-            </div>
-
-          <% end %>
-          <p>Total: <span class="price">500$</span></p>
-        </div>   
-      </div>
-  
-
-  <div class="prod_details_tab">
-          <a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img src="/images/store/cart.gif" alt="" title="" border="0" class="left_bt" /></a>
-          <a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img src="/images/store/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
-          <a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img src="/images/store/favorites.gif" alt="" title="" border="0" class="left_bt" /></a>
-          <%= link_to "details", [parent, cart], :class => "prod_details" %>
-          </div>
-
-  </div>
-  <% end %>
+	<%= render @carts %>

@@ -1,0 +1,11 @@
+<% content_for :right do %>
+ <div class="indent">
+ <h4>Details</h4>
+ 	<ul class="p3">
+ 		<li><%= link_to "Overview", car_path(@car) %></li>
+ 		<li><%= link_to "Pictures", car_pictures_path(@car) %></li>
+ 		<li><%= link_to "Options", car_options_path(@car) %></li>
+ 		<li><%= link_to "User reviews", car_reviews_path(@car) %></li>
+ 	</ul>
+ 	</div>
+ <% end %>

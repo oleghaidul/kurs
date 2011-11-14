@@ -1,13 +1,14 @@
 class Car < ActiveRecord::Base
   acts_as_votable
+  has_many :pictures, :as => :imageable
+  accepts_nested_attributes_for :pictures
 
   has_many :comments, :as => :commentable
 	attr_accessible :name, :model_id, :description, :car_type, 
                   :year, :price, :transmission, :drive_type,
-                  :horsepower, :engine, :fuel_type, :seating_capacity
+                  :horsepower, :engine, :fuel_type, :seating_capacity, :pictures_attributes
   
   belongs_to :model
-  has_many :pictures, :as => :imageable
   has_many :reviews, :as => :reviewable
   has_many :options, :dependent => :destroy
   has_many :comforts

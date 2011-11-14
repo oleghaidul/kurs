@@ -1,0 +1,5 @@
+<div class="news">
+	<h4><%= link_to news.name, news %></h4>
+	<p><%= time_ago_in_words news.created_at %> ago</p>
+	<p><%= simple_format news.body %></p>
+</div>

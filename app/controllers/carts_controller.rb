@@ -1,6 +1,7 @@
 class CartsController < InheritedResources::Base
 	layout "store/store"
 	belongs_to :user
+	before_filter :authenticate_user!
 	before_filter :load_cart
 
 	def load_cart

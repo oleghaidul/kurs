@@ -1,5 +1,9 @@
 class Movie < ActiveRecord::Base
 	acts_as_votable
+	has_many :pictures, :as => :imageable
+	attr_accessible :pictures_attributes
+
+	accepts_nested_attributes_for :pictures
 	
 	has_many :comments, :as => :commentable
 	has_many :reviews, :as => :reviewable

@@ -1,0 +1,151 @@
+<%= content_for :right do %>
+<h3>Information</h3>
+<div class="indent_param">
+
+<%= form_for [:auto, @search], :url => url_for(:action => action_name) do |f| %>
+<div class="param">
+        <p><%= f.label :name_contains %></p>
+        <%= f.text_field :name_contains, :size => 24 %>
+      </div>
+      <h2>Make</h2>
+      <div class="param">
+    	  <% f.collection_checks(:model_make_id_in, Make.all,
+    	      :id, :name, :class => 'headcheck').in_groups_of(2, false) do |check| %>
+    	    <% check.each do |check| %>
+            <%= check.box %>
+            <%= check.label %>
+          <% end %>
+          <br />
+    	  <% end %>
+      </div>
+      <h2>Price</h2>
+      <div>
+        <%= f.label :price_gte, "From" %>
+        <%= f.text_field :price_gte, :size => 5 %>
+        <%= f.label :price_lte, "to" %>
+        <%= f.text_field :price_lte, :size => 5 %>
+      </div>
+      <h2>Year</h2>
+      <div>
+        <%= f.label :year_gte, "From" %>
+        <%= f.text_field :year_gte, :size => 5 %>
+        <%= f.label :year_lte, "to" %>
+        <%= f.text_field :year_lte, :size => 5 %>
+      </div>
+      <h2>Body Style</h2>
+      <div class="param">
+        <% f.checks(:body_style_in,
+           [['Hatchback', 'hatchback'], ['Coupe', 'coupe'], ['Sedan', 'sedan'],
+           ['Truck', 'truck'], ['SUV', 'suv'], ['Crossover', 'crossover'],
+           ['Convertible', 'convertible'], ['Van', 'van'], ['Wagon', 'wagon']],
+           :class => 'checkboxy').in_groups_of(2, false) do |checks| %>
+          <% checks.each do |check| %>
+            <%= check.box %>
+            <%= check.label %>
+          <% end %>
+          <br />
+        <% end %>
+      </div>
+      <h2>Transmission</h2>
+      <div class="param">
+        <% f.checks(:transmission_in,
+           [['Automatic', 'automatic'],['Manual', 'manual']],
+           :class => 'checkboxy').in_groups_of(2, false) do |checks| %>
+          <% checks.each do |check| %>
+            <%= check.box %>
+            <%= check.label %>
+          <% end %>
+        <% end %>
+      </div>
+      <h2>Drive Type</h2>
+      <div class="param">
+        <% f.checks(:drive_type_in,
+           [['2WD', 'two_wd'],['4WD', 'four_wd'],['AWD', 'all_wd']],
+           :class => 'checkboxy').in_groups_of(2, false) do |checks| %>
+          <% checks.each do |check| %>
+            <%= check.box %>
+            <%= check.label %>
+          <% end %>
+        <% end %>
+      </div>
+      <h2>Horsepower</h2>
+      <div>
+        <%= f.label :horsepower_gte, "From" %>
+        <%= f.text_field :horsepower_gte, :size => 5 %>
+        <%= f.label :horsepower_lte, "to" %>
+        <%= f.text_field :horsepower_lte, :size => 5 %>
+      </div>
+      <h2>Engine</h2>
+      <div>
+        <%= f.label :engine_gte, "From" %>
+        <%= f.text_field :engine_gte, :size => 5 %>
+        <%= f.label :engine_lte, "to" %>
+        <%= f.text_field :engine_lte, :size => 5 %>
+      </div>
+      <h2>Fuel Type</h2>
+      <div class="param">
+        <% f.checks(:fuel_type_in,
+           [['Diesel', 'diesel'],['Electric', 'electric'],['Ethanol', 'ethanol'],
+           ['Gasoline', 'gasoline'],['Hybrid', 'hybrid'],['Natural Gas', 'natural_gas']],
+           :class => 'checkboxy').in_groups_of(2, false) do |checks| %>
+          <% checks.each do |check| %>
+            <%= check.box %>
+            <%= check.label %>
+          <% end %>
+          <br />
+        <% end %>
+      </div>
+      <h2>Seating Capacity</h2>
+      <div>
+        <%= f.label :seating_capacity_gte, "From" %>
+        <%= f.text_field :seating_capacity_gte, :size => 5 %>
+        <%= f.label :seating_capacity_lte, "to" %>
+        <%= f.text_field :seating_capacity_lte, :size => 5 %>
+      </div>
+      <h2>Towing Capacity</h2>
+      <div>
+        <%= f.label :towing_capacity_gte, "From" %>
+        <%= f.text_field :towing_capacity_gte, :size => 5 %>
+        <%= f.label :towing_capacity_lte, "to" %>
+        <%= f.text_field :towing_capacity_lte, :size => 5 %>
+      </div>
+      <h2>Safety</h2>
+      <div>
+        <%= f.label :towing_capacity_gte, "From" %>
+        <%= f.text_field :towing_capacity_gte, :size => 5 %>
+        <%= f.label :towing_capacity_lte, "to" %>
+        <%= f.text_field :towing_capacity_lte, :size => 5 %>
+      </div>
+      <h2>Discount</h2>
+      <div>
+        <%= f.label :discount_gte, "From" %>
+        <%= f.text_field :discount_gte, :size => 5 %>
+        <%= f.label :discount_lte, "to" %>
+        <%= f.text_field :discount_lte, :size => 5 %>
+      </div>
+
+
+    <p><%= f.submit "Search", :class => "submit" %></p>
+
+<% end %>
+
+</div>
+<% end %>
+
+<div id="cars">
+  <%= paginate @cars %>
+<table> 
+<tr>
+    <td><h6>Photo</h6></td>
+    <td><h6><%= sort_link @search, :name, "Model" %></h6></td>
+    <td><h6><%= sort_link @search, :price %></h6></td>
+    <td>Views</td>
+  </tr>
+  <%= render @cars %>
+</table>
+  <%= paginate @cars %>
+</div>
+
+<% content_for :left do %>
+  <%= render :partial => "left_main" %>
+<% end %>

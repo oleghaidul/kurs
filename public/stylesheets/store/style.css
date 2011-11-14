@@ -382,6 +382,21 @@ font-weight:bold;
 background:url(../../images/store/bar_bg.gif) no-repeat center;
 }
 
+.false{
+width:520px;
+height:33px;
+float:left;
+padding:0 0 0 40px;
+margin:0 0 0 12px;
+_margin:0 0 0 6px;
+line-height:33px;
+font-size:12px;
+color:#847676;
+text-decoration:line-through;
+font-weight:bold;
+background:url(../../images/store/bar_bg.gif) no-repeat center;
+}
+
 .center_title_bar_search{
 width:520px;
 height:33px;
@@ -463,8 +478,8 @@ display:block;
 float:left;
 background:url(../../images/store/square-blue-add.gif) no-repeat left;
 padding:0 0 0 20px;
-margin:7px 0 0 38px;
-_margin:6px 0 0 35px;
+margin:7px 0 0 18px;
+_margin:6px 0 0 15px;
 text-decoration:none;
 color:#0fa0dd;
 }
@@ -537,12 +552,12 @@ line-height:27px;
 color:#1c4a52;
 }
 input.addtocart{
-width:112px;
+width:82px;
 height:27px;
 display:block;
 float:left;
 background:url(../../images/store/addtocart.gif) no-repeat left;
-padding:0 0 0 33px;
+padding:0 0 0 24px;
 text-decoration:none;
 line-height:27px;
 color:#1c4a52;

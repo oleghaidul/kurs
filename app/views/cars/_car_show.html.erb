@@ -1,0 +1,14 @@
+<table>
+	<tr>
+		<td>
+			<%= image_tag @car.pictures.first.image.url, :width => 150 if @car.pictures.exists? %>
+		</td>
+		<td>
+			<h4><%= @car.name %></h4>
+			<h4><%= @car.model.name %></h4>
+			<h4><%= number_to_currency @car.price %></h4>
+
+		</td>
+	</tr>
+	
+</table>

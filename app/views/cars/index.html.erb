@@ -1,0 +1,32 @@
+  <%= render :partial => "right_main" %>
+  <%= render :partial => "left_main" %>
+<div class="inline">
+  <h4>New Cars</h4>
+  <%= form_for @search, :url => new_cars_path do |f| %>
+    <%= f.collection_checks :model_make_id_in, Make.all,
+          :id, :name, :class => 'headcheck' do |check| %>
+          <%= check.box %>
+          <%= check.label %>
+        <br />
+      <% end %>  
+    <p><%= f.submit "Search", :name => "Search" %></p>
+  <% end %>
+</div>  
+<div class="inline">
+  <h4>Used Cars</h4>
+  <%= form_for @search, :url => used_cars_path do |f| %>
+    <%= f.collection_checks :model_make_id_in, Make.all,
+          :id, :name, :class => 'headcheck' do |check| %>
+          <%= check.box %>
+          <%= check.label %>
+        <br />
+      <% end %> 
+    <p><%= f.submit "Search", :name => "Search" %></p>
+  <% end %>
+</div>
+
+<% content_for :right do %>
+  <%= render @pictures.cars %>
+<% end %>
+
+

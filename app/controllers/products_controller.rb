@@ -1,4 +1,5 @@
 class ProductsController < InheritedResources::Base
+	before_filter :authenticate_user!
 	before_filter :load_cart
 	layout "store/store"
 	belongs_to :category

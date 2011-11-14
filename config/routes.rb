@@ -14,16 +14,14 @@ Kurs::Application.routes.draw do
 
   match 'auto/news' => 'auto/cars#news'
   
-  namespace :auto do
-    resources :makes
-    resources :models
-    resources :cars do
-      resources :pictures
-      resources :options
-      resources :reviews
-    end
-    
+  resources :makes
+  resources :models
+  resources :cars do
+    resources :pictures
+    resources :options
+    resources :reviews
   end
+
   resources :line_items, :only => [:create, :destroy]
   
   match 'movies/latest' => 'movies#latest'
@@ -40,8 +38,8 @@ Kurs::Application.routes.draw do
 
   match 'auto' => 'auto/cars#index'
   match 'auto/news' => 'auto/cars#news'
-  match 'auto/new_cars' => 'auto/cars#new_cars'
-  match 'auto/used_cars' => 'auto/cars#used_cars'
+  match 'new_cars' => 'cars#new_cars'
+  match 'used_cars' => 'cars#used_cars'
 
   resources :news, :only => [:index, :show] do
     resources :comments

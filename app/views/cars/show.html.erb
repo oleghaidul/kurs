@@ -1,0 +1,36 @@
+<%= render :partial => "car_show" %>
+  <%= render :partial => "sticky_header" %>
+
+
+<ul id="demo-ul">
+	<li class="open">
+		<p>Anti-Theft & Locks</p>
+		<ul>
+			<% for option in @options.car_params("Anti-Theft & Locks") %>
+				<li><a><%= option.name %></a></li>
+			<% end %>
+			
+		</ul>
+	</li>
+	<li>
+		<p>Braking & Traction</p>
+		<ul>
+			<% for option in @options.car_params("Braking & Traction") %>
+				<li><a><%= option.name %></a></li>
+			<% end %>
+			
+		</ul>
+	</li>
+	<li>
+		<p>Engines & Emissions</p>
+		<ul>
+			<% for option in @options.car_params("Engines & Emissions") %>
+				<li><a><%= option.name %></a></li>
+			<% end %>
+			
+		</ul>
+	</li>
+	
+</ul>
+ 
+ <%= render :partial => 'right_show' %>

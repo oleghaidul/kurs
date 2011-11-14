@@ -1,0 +1,15 @@
+
+
+<div class="wrapper">
+  <tr>
+    <td><%= link_to image_tag("auto/img2.jpg", :size => '100x70', :class => "img-indent"), car %></td>
+    <td>
+      <h4>
+        <%=  %>
+        <%= link_to car.year.to_s+" "+car.name, car %>
+      </h4>
+    </td>
+    <td><span class="price fleft">$<%= car.price %></span></td>
+    <td><%= car.likes.size %></td>
+  </tr>
+</div>

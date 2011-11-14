@@ -1,4 +1,14 @@
 ActiveAdmin.register Car do
+  menu :parent => "Autos"
+ 
+  controller do
+  	def new
+			super do
+		    @car.pictures.build
+	  	end
+    end
+  end
+
   form do |f|  
   f.inputs do
   	f.input :model_id, :as => :select, :collection => Model.all
@@ -21,6 +31,12 @@ ActiveAdmin.register Car do
 	f.input :drive_type, :as => :radio, :collection => ["two_wd", "four_wd", "all_wd"]
  	f.input :discount
   end
+
+  f.inputs "Pictures" do 
+    f.has_many :pictures do |pp| 
+      pp.inputs :image, :as => file 
+    end 
+   end 
 
   f.buttons
 end

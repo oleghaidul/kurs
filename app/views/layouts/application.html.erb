@@ -25,7 +25,7 @@
 			<header>
 				<div class="row-1">
 					<h1>
-						<a class="logo" href="index.html">Point.co</a>
+						<%= link_to "Home", root_path, :class => "logo" %>
 						<strong class="slog">The most creative ideas</strong>
 					</h1>
 					<form id="search-form" action="" method="post" enctype="multipart/form-data">
@@ -56,13 +56,13 @@
 										<div class="wrapper indent-bot">
 											<strong class="numb img-indent2">01</strong>
 											<div class="extra-wrap">
-												<h3 class="color-1"><strong>Careful</strong>Analysis</h3>
+												<h3 class="color-1"><strong>Autos</strong>Catalog</h3>
 											</div>
 										</div>
 										<div class="wrapper">
-											<a class="button img-indent-r" href="#">>></a>
+											<%= link_to ">", cars_path, :class => "button img-indent-r" %> 
 											<div class="extra-wrap">
-												Point.co is one of <a class="link" target="_blank" href="http://blog.templatemonster.com/free-website-templates/ ">free website templates</a> created by TemplateMonster.com.
+												<a class="link" target="_blank" href="http://blog.templatemonster.com/free-website-templates/ ">free website templates</a> created by TemplateMonster.com.
 											</div>
 										</div>
 									</div>
@@ -74,11 +74,11 @@
 										<div class="wrapper indent-bot">
 											<strong class="numb img-indent2">02</strong>
 											<div class="extra-wrap">
-												<h3 class="color-2"><strong>Quick</strong>Research</h3>
+												<h3 class="color-2"><strong>Movies</strong>Tralers</h3>
 											</div>
 										</div>
 										<div class="wrapper">
-											<a class="button img-indent-r" href="#"></a>
+											<%= link_to ">", movies_path, :class => "button img-indent-r" %>
 											<div class="extra-wrap">
 												This <a class="link" target="_blank" href="http://blog.templatemonster.com/2011/06/13/free-website-template-jquery-slider/ ">Template</a> goes with two packages – with PSD files and without them.
 											</div>
@@ -92,11 +92,11 @@
 										<div class="wrapper indent-bot">
 											<strong class="numb img-indent2">03</strong>
 											<div class="extra-wrap">
-												<h3 class="color-3"><strong>New</strong>Strategies</h3>
+												<h3 class="color-3"><strong>Our</strong>Store</h3>
 											</div>
 										</div>
 										<div class="wrapper">
-											<a class="button img-indent-r" href="#">>></a>
+											<%= link_to ">", categories_path, :class => "button img-indent-r" %>
 											<div class="extra-wrap">
 												It has several pages: <a class="link" href="index.html">Home</a>, <a class="link" href="news.html">News</a>, <a class="link" href="services.html">Services</a>, <a class="link" href="products.html">Products</a>, <a class="link" href="contacts.html">Contacts</a>.
 											</div>

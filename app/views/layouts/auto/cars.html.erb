@@ -28,12 +28,10 @@
       	<a href="index.html"><%= image_tag("auto/logo.png") %></a>
       </div>
         <%= render :partial => "layouts/auto/menu" %>
-        <% if content_for?(:sticky_header) %>
-          <div><%= yield(:sticky_header) %></div>
-        <% end %>
+        <%= render :partial => "layouts/auto/sticky_header" %>
     </header>
     <section id="banners">
-    	<a href="#"><%= link_to image_tag("auto/banner1.png"), auto_new_cars_path, :discount => "20" %></a>&nbsp;<a href="#"><%= image_tag "auto/banner2.png", :class => "last" %></a>
+    	<a href="#"><%= link_to image_tag("auto/banner1.png"), new_cars_path, :discount => "20" %></a>&nbsp;<a href="#"><%= image_tag "auto/banner2.png", :class => "last" %></a>
     </section>
     <div class="wrapper">
       <!-- aside -->

@@ -1,4 +1,4 @@
-<%= form_for [:auto, @car, @review] do |f| %>
+<%= form_for [parent, @review] do |f| %>
   <%= f.hidden_field :reviewable_id, :value => @car.id %>
   <%= f.hidden_field :reviewable_type, :value => "Car" %>
   <p>
