@@ -1,32 +1,65 @@
   <%= render :partial => "right_main" %>
   <%= render :partial => "left_main" %>
-<div class="inline">
-  <h4>New Cars</h4>
-  <%= form_for @search, :url => new_cars_path do |f| %>
+
+  <%= form_for @search, :url => cars_path do |f| %>
+  <div class="inline">
+  <h4>Select make</h4>
     <%= f.collection_checks :model_make_id_in, Make.all,
-          :id, :name, :class => 'headcheck' do |check| %>
+          :id, :name, :class => 'headcheck', :id => "sfg" do |check| %>
           <%= check.box %>
           <%= check.label %>
         <br />
       <% end %>  
-    <p><%= f.submit "Search", :name => "Search" %></p>
-  <% end %>
+   
+  
 </div>  
 <div class="inline">
-  <h4>Used Cars</h4>
-  <%= form_for @search, :url => used_cars_path do |f| %>
-    <%= f.collection_checks :model_make_id_in, Make.all,
-          :id, :name, :class => 'headcheck' do |check| %>
-          <%= check.box %>
-          <%= check.label %>
-        <br />
-      <% end %> 
-    <p><%= f.submit "Search", :name => "Search" %></p>
-  <% end %>
-</div>
+  <h4>Price</h4>
+        <%= f.label :price_gte, "From" %>
+        <%= f.text_field :price_gte, :size => 5 %>
+        <%= f.label :price_lte, "to" %>
+        <%= f.text_field :price_lte, :size => 5 %>
+      <h4>Year</h4>
+        <%= f.label :year_gte, "From" %>
+        <%= f.text_field :year_gte, :size => 5 %>
+        <%= f.label :year_lte, "to" %>
+        <%= f.text_field :year_lte, :size => 5 %>
+      <h4>Horsepower</h4>
+      <div>
+        <%= f.label :horsepower_gte, "From" %>
+        <%= f.text_field :horsepower_gte, :size => 5 %>
+        <%= f.label :horsepower_lte, "to" %>
+        <%= f.text_field :horsepower_lte, :size => 5 %>
+      </div>
+      </div>
+      <p><%= f.submit "Search", :name => "Search" %></p>
+    <% end %>
 
+<h2>Recommended</h2>
+
+   <div id="cars">
+  <%= paginate @cars %>
+<table> 
+<tr>
+    <td><h6>Photo</h6></td>
+    <td><h6><%= sort_link @search, :name, "Model" %></h6></td>
+    <td><h6><%= sort_link @search, :price %></h6></td>
+    <td>Views</td>
+  </tr>
+  <%= render @cars %>
+</table>
+  <%= paginate @cars %>
+</div>
+     
 <% content_for :right do %>
-  <%= render @pictures.cars %>
+  
+  <% for car in Car.limit(10) %>
+    <% if car.pictures.exists? %>
+      <%= link_to car.name, car %>
+      <%= link_to image_tag(car.pictures.first.image.url, :width => 200), car %>
+    <% end %>
+  <% end %>
+  
 <% end %>
 
 

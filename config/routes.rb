@@ -12,14 +12,15 @@ Kurs::Application.routes.draw do
     resources :carts
   end
 
-  match 'auto/news' => 'auto/cars#news'
-  
+  match 'cars/news' => 'cars#news'
+
   resources :makes
   resources :models
   resources :cars do
     resources :pictures
     resources :options
     resources :reviews
+    resources :news
   end
 
   resources :line_items, :only => [:create, :destroy]

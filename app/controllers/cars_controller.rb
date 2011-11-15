@@ -7,8 +7,10 @@ class CarsController < InheritedResources::Base
 
   def index
   	@search = Car.search(params[:search])
-  	@cars = @search
+    @cars = @search.page(params[:page]).per(15)
     @pictures = Picture.cars
+    @news = News.cars
+    render "params" if !@car.nil?
   end
 
   def show
@@ -16,6 +18,7 @@ class CarsController < InheritedResources::Base
     @options = @car.options
     @car.liked_by User.first
     @review = Review.new
+    @similar_cars = Car.where(:engine => @car.engine).limit(10)
   end
 
   def news

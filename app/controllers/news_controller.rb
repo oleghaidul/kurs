@@ -4,7 +4,7 @@ layout 'news'
 
   def show
     @news = News.find(params[:id])
-    @comment = @news.comments
+    @similar_news = News.where(:news_type => @news.news_type).limit(5)
   end
   
   protected

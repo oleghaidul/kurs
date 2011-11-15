@@ -1,6 +1,10 @@
 class News < ActiveRecord::Base
-	has_many :comments, :as => :commentable
 	has_many :pictures, :as => :imageable
+  accepts_nested_attributes_for :pictures
+
+  attr_accessible :pictures_attributes
+
+  has_many :comments, :as => :commentable
 
   scope :news_type, proc { |news_type| where(:news_type => news_type) }
   

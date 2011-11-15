@@ -1,8 +1,13 @@
 class Product < ActiveRecord::Base
+
+	has_many :pictures, :as => :imageable
+  accepts_nested_attributes_for :pictures
+
+  attr_accessible :pictures_attributes
+
 	belongs_to :category
 	belongs_to :manufacturer
 	has_many :line_items
-	has_many :pictures, :as => :imageable
 	has_many :reviews, :as => :reviewable
 
 	def self.search(search, category)

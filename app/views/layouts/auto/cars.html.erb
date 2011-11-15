@@ -3,7 +3,7 @@
 <head>
   <title></title>
   <meta charset="utf-8">
-  <%= stylesheet_link_tag "auto/style", "auto/reset" %>
+  <%= stylesheet_link_tag "auto/style", "auto/reset", "auto/jaccordion" %>
   <%= javascript_include_tag :defaults, "auto/html5", "auto/jquery.jaccordion.0.1",
   "auto/jquery.jaccordion.0.1.min"  %>
   <!--[if lt IE 7]>
@@ -25,7 +25,7 @@
   	<!-- header -->
     <header>
     	<div class="logo">
-      	<a href="index.html"><%= image_tag("auto/logo.png") %></a>
+      	<%= link_to image_tag("auto/logo.png"), cars_path %>
       </div>
         <%= render :partial => "layouts/auto/menu" %>
         <%= render :partial => "layouts/auto/sticky_header" %>

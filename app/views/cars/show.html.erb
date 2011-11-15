@@ -1,5 +1,4 @@
 <%= render :partial => "car_show" %>
-  <%= render :partial => "sticky_header" %>
 
 
 <ul id="demo-ul">
@@ -34,3 +33,14 @@
 </ul>
  
  <%= render :partial => 'right_show' %>
+
+ <%= content_for :left do %>
+ 	<h3>Similar cars</h3>
+ 	<% for car in @similar_cars %>
+	 	<% if car.pictures.exists? %>
+	 		<%= link_to car.name, car %>
+	    	<%= link_to image_tag(car.pictures.first.image.url, :width => 200), car  %>
+	    <% end %>
+ 	<% end %>
+	
+ <% end %>
