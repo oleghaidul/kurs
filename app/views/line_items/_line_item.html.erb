@@ -12,10 +12,13 @@
         </div>
         <div class="bottom_prod_box"></div>
         <div class="prod_details_tab">
+        <% if line_item.cart.active == true %>
         <%= button_to "Delete this product", line_item_path(line_item), 
         																		:method => :delete,
-                                                                                :remote => true,
-        																		:confirm => "Are you sure?" %>
+                                            :remote => true,
+        																		:confirm => "Are you sure?" 
+                                                                 %>
+        <% end %>
 
         </div>
   	</div>

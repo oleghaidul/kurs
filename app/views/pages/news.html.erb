@@ -5,7 +5,7 @@
 	<div class="col-3">
 		<div class="indent">
 			<h2>Latest News</h2>
-			<% for news in @news.main %>
+			<% for news in @news %>
 				<div class="news indent-bot2">
 					<time class="tdate-2" datetime=""><%= time_ago_in_words(news.created_at) %>&nbsp;</time>
 					<p class="p1"><%= link_to news.name, news %></p>

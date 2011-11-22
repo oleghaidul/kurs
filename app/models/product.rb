@@ -10,6 +10,8 @@ class Product < ActiveRecord::Base
 	has_many :line_items
 	has_many :reviews, :as => :reviewable
 
+	scope :latest, order("created_at DESC").limit(9)
+
 	def self.search(search, category)
 		if category	
 			if search

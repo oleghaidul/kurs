@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
   
   def news
-  	@news = News.limit(5)
+  	@news = News.main
   end
 
   def services

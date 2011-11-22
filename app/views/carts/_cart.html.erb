@@ -1,2 +1,5 @@
-<div class="center_title_bar <%= cart.active %>"><%= cart.name %></div>
+<div class="center_title_bar <%= cart.active %>">
+<%= cart.name %>
+<span class="desc"><%= link_to "Edit Cart", edit_user_cart_path(current_user, cart) %></span>
+</div>
 	<%= render cart.line_items.includes(:product => :category) %>

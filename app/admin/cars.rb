@@ -9,7 +9,7 @@ ActiveAdmin.register Car do
     end
   end
 
-  form do |f|  
+  form :html => { :enctype => "mmultipart/form-data" } do |f|  
   f.inputs do
   	f.input :model_id, :as => :select, :collection => Model.all
   	f.input :name
@@ -32,9 +32,9 @@ ActiveAdmin.register Car do
  	f.input :discount
   end
 
-  f.inputs "Pictures" do 
-    f.has_many :pictures do |pp| 
-      pp.inputs :image, :as => file 
+  f.inputs do 
+    f.has_many :pictures do |p| 
+      p.inputs :image, :as => file 
     end 
    end 
 

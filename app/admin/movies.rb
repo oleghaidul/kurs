@@ -12,10 +12,10 @@ ActiveAdmin.register Movie do
   	f.inputs do
 	  	f.input :name
 	  	f.input :description
-	  	f.input :genre
-	  	f.input :year
+	  	f.input :genre, :as => :select, :collection => ["Action","Thriller"]
+	  	f.input :year, :as => :select, :collection => 1960..2040
 	  	f.input :time
-	  	f.input :release_date
+	  	f.input :release_date, :as => :select, :collection => 2012..2040
 	  	f.input :distributors
 	  	f.input :status
   	end

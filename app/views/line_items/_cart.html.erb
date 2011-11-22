@@ -1,3 +1,4 @@
+<% unless @cart.nil? %>
 <div class="cart_title"><%= @cart.name %></div>
 
 <div class="cart_details">
@@ -12,3 +13,6 @@
 	 									:width => 48), [@cart.user, @cart], 
 	 									:title => "header=[Checkout] body=[&nbsp;] fade=[on]" %></div>
 </div>
+<% else %>
+	<div class="cart_title">Empty</div>
+<% end %>

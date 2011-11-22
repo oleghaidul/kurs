@@ -17,6 +17,7 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     @cart = current_cart
+    @carts = current_user.carts
   end
 
   private 
