@@ -6,6 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
+
 module Kurs
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -38,5 +39,9 @@ module Kurs
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    # Force locale on Heroku
+    I18n.load_path += Dir[Rails.root.join('config', 'locales', '*.yml').to_s]
+    I18n.locale = :ru
   end
 end
