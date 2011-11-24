@@ -1,5 +1,5 @@
 ActiveAdmin.register Product do
-  menu :parent => "Store"
+  menu :parent => I18n.t("store")
  
   controller do
   	def new

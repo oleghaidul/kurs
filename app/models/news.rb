@@ -12,6 +12,9 @@ class News < ActiveRecord::Base
   scope :cars, where(:news_type => "cars")
   scope :movies, where(:news_type => "movies")
   scope :main, where(:news_type => "main")
+  scope :sports, where(:news_type => "sports")
+  scope :games, where(:news_type => "games")
+  scope :jobs, where(:news_type => "jobs")
 
   scope :world, where(:news_type => "world")
 

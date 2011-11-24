@@ -1,12 +1,13 @@
 <div class="box">
   <div class="head">
-    <h2>TOP RATED</h2>
-    <p class="text-right"><%= link_to "See all", movies_top_rated_path %></p>
+    <h2><%= I18n.t("top_rated") %></h2>
+    <p class="text-right"><%= link_to I18n.t("see_all"), movies_top_rated_path %></p>
   </div>
+  <% if @movies.top_rated.exists? %>
   <% for movie in @movies.top_rated.limit(12) %>
   <div class="movie">
     <div class="movie-image"><span class="name"><%= movie.name %></span>
-      <%= link_to image_tag(movie.pictures.first.image.url, :width => 152), movie %>
+      <%= link_to image_tag(movie.pictures.first.image.url, :width => 152), movie if movie.pictures.exists? %>
     </div>
     <div class="rating">
       <p>RATING</p>
@@ -16,6 +17,7 @@
       <span class="comments">12</span>
     </div>
   </div>
+  <% end %>
   <% end %>
   <div class="cl">&nbsp;</div>
 </div>

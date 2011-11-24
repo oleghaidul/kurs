@@ -1,13 +1,7 @@
 <%= content_for :center do %>
 <div id="hpage_cats">
-  <% c = 1 %>
   <% for news in @news.limit(6) %>
-  <% c = c + 1; if (c%2 == 1) %>
-    <% i = "fl_left" %>
-  <% else %>
-    <% i = "fl_right" %>
-  <% end %>
-      <div class="<%= i %>">
+      <div class="<%= cycle :fl_left, :fl_right %>">
         <h2><%= link_to news.news_type, news_index_path+"?news_type=#{news.news_type}" %></h2>
         <%= image_tag news.pictures.first.image.url, :width => "100" if news.pictures.exists? %>
         <p><strong><%= link_to news.name, news %></strong></p>

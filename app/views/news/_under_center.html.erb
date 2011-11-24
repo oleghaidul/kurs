@@ -2,7 +2,7 @@
 <div id="footer">
     
     <div class="footbox">
-      <h2>Cars</h2>
+      <h2><%= I18n.t("cars_news") %></h2>
       <ul>
         <% for news in @news.cars %>
           <li><%= link_to news.name, news %></li>
@@ -10,15 +10,15 @@
       </ul>
     </div>
     <div class="footbox">
-      <h2>Sports</h2>
-      <ul>car
+      <h2><%= I18n.t("sports_news") %></h2>
+      <ul>
         <% for news in @news.sports %>
           <li><%= link_to news.name, news %></li>
         <% end %>
       </ul>
     </div>
     <div class="footbox">
-      <h2>Games</h2>
+      <h2><%= I18n.t("games_news") %></h2>
       <ul>
         <% for news in @news.games %>
           <li><%= link_to news.name, news %></li>
@@ -26,7 +26,7 @@
       </ul>
     </div>
     <div class="footbox">
-      <h2>Jobs</h2>
+      <h2><%= I18n.t("jobs_news") %></h2>
       <ul>
         <% for news in @news.jobs %>
           <li><%= link_to news.name, news %></li>
@@ -34,7 +34,7 @@
       </ul>
     </div>
     <div class="footbox last">
-      <h2>Movies</h2>
+      <h2><%= I18n.t("movies_news") %></h2>
       <ul>
         <% for news in @news.movies %>
           <li><%= link_to news.name, news %></li>

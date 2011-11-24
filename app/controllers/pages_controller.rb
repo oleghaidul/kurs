@@ -11,5 +11,9 @@ class PagesController < ApplicationController
   def services
 
   end
+
+  def products
+  	@products = Product.limit(20)
+  end
   
 end

@@ -33,19 +33,19 @@
   <div id="topbar">
     <div id="topnav">
       <ul>
-        <li><%= link_to "Home", news_index_path %></li>
-        <li><%= link_to "World News", news_index_path+"?news_type=world" %></li>
-        <li><%= link_to "Local News", news_index_path+"?news_type=local" %></li>
-        <li><%= link_to "Business News", news_index_path+"?news_type=business" %></li>
-        <li class="last"><%= link_to "Other News", '#' %>
+        <li><%= link_to I18n.t("home"), news_index_path %></li>
+        <li><%= link_to I18n.t("world_news"), news_index_path+"?news_type=world" %></li>
+        <li><%= link_to I18n.t("local_news"), news_index_path+"?news_type=local" %></li>
+        <li><%= link_to I18n.t("business_news"), news_index_path+"?news_type=business" %></li>
+        <li class="last"><%= link_to I18n.t("other_news"), '#' %>
           <ul>
-            <li><%= link_to "Sports News", news_index_path+"?news_type=sports" %></li>
-            <li><%= link_to "Entertainment News", news_index_path+"?news_type=entertainment" %></li>
-            <li><%= link_to "Science News", news_index_path+"?news_type=science" %></li>
-            <li><%= link_to "Health News", news_index_path+"?news_type=health" %></li>
-            <li><%= link_to "Cars News", news_index_path+"?news_type=cars" %></li>
-            <li><%= link_to "Movies News", news_index_path+"?news_type=movies" %></li>
-            <li><%= link_to "Games News", news_index_path+"?news_type=games" %></li>
+            <li><%= link_to I18n.t("sports_news"), news_index_path+"?news_type=sports" %></li>
+            <li><%= link_to I18n.t("entertainment_news"), news_index_path+"?news_type=entertainment" %></li>
+            <li><%= link_to I18n.t("science_news"), news_index_path+"?news_type=science" %></li>
+            <li><%= link_to I18n.t("health_news"), news_index_path+"?news_type=health" %></li>
+            <li><%= link_to I18n.t("cars_news"), news_index_path+"?news_type=cars" %></li>
+            <li><%= link_to I18n.t("movies_news"), news_index_path+"?news_type=movies" %></li>
+            <li><%= link_to I18n.t("games_news"), news_index_path+"?news_type=games" %></li>
           </ul>
         </li>
       </ul>
@@ -111,8 +111,8 @@
 <!-- ####################################################################################################### -->
 <div class="wrapper col8">
   <div id="copyright">
-    <p class="fl_left">Copyright &copy; 2011 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">Template by <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <p class="fl_left"></p>
+    <p class="fl_right"></p>
     <br class="clear" />
   </div>
 </div>

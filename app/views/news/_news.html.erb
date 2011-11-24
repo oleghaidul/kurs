@@ -1,6 +1,6 @@
 <div class="news">
 	<h4><%= link_to news.name, news %></h4>
 	<p><%= image_tag news.pictures.first.image.url if news.pictures.exists? %></p>
-	<p><%= time_ago_in_words news.created_at %> ago</p>
+	<p><%= time_ago_in_words news.created_at %></p>
 	<p><%= simple_format news.body %></p>
 </div>

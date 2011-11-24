@@ -10,19 +10,19 @@ class MoviesController < InheritedResources::Base
 
 	def latest
 		@movies = Movie.recent
-		@type = "LATEST"
+		@type = I18n.t("latest")
 		render "movies"
 	end
 
 	def coming
 		@movies = Movie.coming
-		@type = "COMING SOON"
+		@type = I18n.t("coming_soon")
 		render "movies"
 	end
 
 	def top_rated
 		@movies = Movie.top_rated
-		@type = "TOP RATED"
+		@type = I18n.t("top_rated")
 		render "movies"
 	end
 
@@ -34,7 +34,7 @@ class MoviesController < InheritedResources::Base
 
 	def top_commented
 		@movies = Movie.top_commented
-		@type = "MOST COMMENTED"
+		@type = I18n.t("most_commented")
 		render "movies"
 	end
 

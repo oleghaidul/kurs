@@ -37,6 +37,9 @@
 						</fieldset>
 					</form>
 				</div>
+				<% flash.each do |name, msg| %>
+		        	<%= content_tag :div, msg, :id => "flash_#{name}" %>
+		      	<% end %>
 				<div class="row-2">
 					<%= render :partial => "layouts/menu" %>
 				</div>
@@ -47,7 +50,7 @@
 <!-- content --><div class="ic">More Website Templates  at TemplateMonster.com!</div>
 			<section id="content">
 				<div class="padding">
-          <%= yield %>
+		        <%= yield %>
 					<div class="box-bg margin-bot">
 						<div class="wrapper">
 							<div class="col-1">

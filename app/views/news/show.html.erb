@@ -5,7 +5,7 @@
   <%= render @news.pictures %>
 </div>
 
-	<h3>Comments</h3>
+	<h3><%= I18n.t("comments") %></h3>
  <%= render @news.comments %>
 
  <%= content_for :right do %>

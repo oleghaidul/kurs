@@ -1,18 +1,20 @@
 <%= content_for :coming do %>
 	<div id="coming">
 	  <div class="head">
-	    <h3>COMING SOON<strong>!</strong></h3>
-	    <p class="text-right"><%= link_to "See all", movies_coming_path %></p>
+	    <h3><%= I18n.t("coming_soon") %><strong>!</strong></h3>
+	    <p class="text-right"><%= link_to I18n.t("see_all"), movies_coming_path %></p>
 	  </div>
+	  <% if @movies.coming.exists? %>
 	  <% for movie in @movies.coming.limit(5) %>
 	  <div class="content">
 	    <h4><%= movie.name %></h4>
 	    <p class="date"><%= time_ago_in_words(movie.release_date) %></p>
-	    <%= link_to image_tag(movie.pictures.first.image.url), movie %>
+	    <%= link_to image_tag(movie.pictures.first.image.url), movie if movie.pictures.exists? %>
 	    <%= movie.description %>
-	  	<%= link_to "Read more", movie %>  
+	  	<%= link_to I18n.t("read_more"), movie %>  
 	  </div>
 	  <div class="cl">&nbsp;</div>
 	</div>
+	<% end %>
 	<% end %>
 <% end %>

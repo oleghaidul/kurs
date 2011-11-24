@@ -3,35 +3,35 @@
   <div class="social">
     <p><%= current_user.email if user_signed_in? %></p>
       <ul>
-          <li><%= link_to "Home Page", root_path %></li> 
+          <li><%= link_to I18n.t("home_page"), root_path %></li> 
         <% if user_signed_in? %>
-          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li> 
-          <li class="last"><%= link_to('Edit profile', edit_user_registration_path) %></li>
+          <li><%= link_to(I18n.t('logout'), destroy_user_session_path, :method => :delete) %></li> 
+          <li class="last"><%= link_to(I18n.t('edit_profile'), edit_user_registration_path) %></li>
           </li>
         <% else %>
-          <li><%= link_to('Login', new_user_session_path)  %></li> 
-          <li class="last"><%= link_to('Register', new_user_registration_path)  %></li>
+          <li><%= link_to(I18n.t('login'), new_user_session_path)  %></li> 
+          <li class="last"><%= link_to(I18n.t('register'), new_user_registration_path)  %></li>
         <% end %>
       </ul>
   </div>
   <div id="navigation">
     <ul>
-      <li><%= link_to "HOME", movies_path, :class => ('active' if action_name == "index") %></li>
-      <li><%= link_to "NEWS", news_index_path+"?news_type=movies" %></li>
-      <li><%= link_to "COMING SOON", movies_coming_path, :class => ('active' if action_name == "coming") %></li>
+      <li><%= link_to I18n.t("home"), movies_path, :class => ('active' if action_name == "index") %></li>
+      <li><%= link_to I18n.t("news"), news_index_path+"?news_type=movies" %></li>
+      <li><%= link_to I18n.t("coming_soon"), movies_coming_path, :class => ('active' if action_name == "coming") %></li>
       <li><a href="#">CONTACT</a></li>
       <li><a href="#">ADVERTISE</a></li>
     </ul>
   </div>
   <div id="sub-navigation">
     <ul>
-      <li><%= link_to "SHOW ALL", movies_path, 
+      <li><%= link_to I18n.t("show_all"), movies_path, 
                       :class => ('active' if action_name == "index") %></li>
-      <li><%= link_to "LATEST MOVIES", movies_latest_path, 
+      <li><%= link_to I18n.t("latest"), movies_latest_path, 
                       :class => ('active' if action_name == "latest") %></li>
-      <li><%= link_to "TOP RATED", movies_top_rated_path, 
+      <li><%= link_to I18n.t("top_rated"), movies_top_rated_path, 
                       :class => ('active' if action_name == "top_rated") %></li>
-      <li><%= link_to "MOST COMMENTED", movies_top_commented_path, 
+      <li><%= link_to I18n.t("most_commented"), movies_top_commented_path, 
                       :class => ('active' if action_name == "top_commented") %></li>
     </ul>
     <%= render :partial => "layouts/movies/search" %>

@@ -6,10 +6,10 @@
   <% for movie in @movies %>
   <div class="movie">
     <div class="movie-image"><span class="name"><%= movie.name %></span>
-      <%= link_to image_tag(movie.pictures.first.image.url, :width => 152), movie %>
+      <%= link_to image_tag(movie.pictures.first.image.url, :width => 152), movie if movie.pictures.exists? %>
     </div>
     <div class="rating">
-      <p>RATING</p>
+      <p><%= I18n.t("rating") %></p>
       <div class="stars">
         <div class="stars-in"> </div>
       </div>

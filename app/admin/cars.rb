@@ -1,5 +1,5 @@
 ActiveAdmin.register Car do
-  menu :parent => "Autos"
+  menu :parent => I18n.t("auto")
  
   controller do
   	def new
