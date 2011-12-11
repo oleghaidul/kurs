@@ -30,10 +30,16 @@
 					</h1>
 					<form id="search-form" action="" method="post" enctype="multipart/form-data">
 						<fieldset>
-							<div class="search-form">					
-								<input type="text" name="search" value="Type Keyword Here" onBlur="if(this.value=='') this.value='Type Keyword Here'" onFocus="if(this.value =='Type Keyword Here' ) this.value=''" />
-								<a href="#" onClick="document.getElementById('search-form').submit()">Search</a>									
-							</div>
+							<ul>
+			        		<% if user_signed_in? %>
+			          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li> 
+			          <li><%= link_to('Edit profile', edit_user_registration_path) %></li>
+			          </li>
+			        		<% else %>
+			          <li><%= link_to('Login', new_user_session_path)  %></li> 
+			          <li><%= link_to('Register', new_user_registration_path)  %></li>
+			        		<% end %>
+				      </ul>
 						</fieldset>
 					</form>
 				</div>
@@ -154,8 +160,7 @@
 				</div>
 				<div class="row-bot">
 					<div class="aligncenter">
-						<p class="p0"><a rel="nofollow" href="http://www.templatemonster.com/" target="_blank">Website Template</a> by TemplateMonster.com</p>
-						<a href="http://www.templates.com/product/3d-models/" target="_blank">3D Models</a> provided by Templates.com<br>
+						kursa4
 						<!-- {%FOOTER_LINK} -->
 					</div>
 				</div>

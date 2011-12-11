@@ -19,5 +19,7 @@ class Car < ActiveRecord::Base
   scope :discount, proc { |discount| where(:discount => discount) }
   scope :new_cars, where(:car_type => "new")
   scope :used_cars, where(:car_type => "used")
+  scope :featured, where("discount > 10").order("discount DESC").limit(5)
+
 
 end

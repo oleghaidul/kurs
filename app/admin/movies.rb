@@ -8,7 +8,7 @@ ActiveAdmin.register Movie do
     end
   end
 
-  form do |f|
+  form :html => { :enctype => "mmultipart/form-data" }  do |f|
   	f.inputs do
 	  	f.input :name
 	  	f.input :description

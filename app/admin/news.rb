@@ -7,11 +7,13 @@ ActiveAdmin.register News do
     end
   end
 
-  form do |f|  
+  form :html => { :enctype => "mmultipart/form-data" } do |f|  
   f.inputs do
   	f.input :name
   	f.input :body
-  	f.input :news_type, :as => :select, :collection => ["New","Used"]
+  	f.input :news_type, :as => :select, :collection => ["local", "world", "business", "sports", 
+                        "entertainment", "science", "health", "cars", 
+                        "movies", "games", "main"]
     f.input :archived, :as => :boolean
   end
 

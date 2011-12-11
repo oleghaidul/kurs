@@ -457,7 +457,11 @@ ru:
 
       movie: "Видео"
       car: "Авто"
-      cart: "Корзина"
+      cart:
+        one: "Корзина"
+        few: "Корзин"
+        many: "Корзины"
+        other: "Корзину"
       comment: "Комментарии"
       make: "Марка"
       manufacturer: "Производитель"

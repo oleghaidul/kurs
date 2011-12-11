@@ -1,1 +1,11 @@
-<%= render @products %>
+
+
+<%= content_for :page do %>
+	<body id="page3">
+<% end %>
+
+<div class="indent">
+	<h2>Our Products</h2>
+			<%= render @products %>
+	
+</div>

@@ -1,0 +1,9 @@
+<h3>Featured cars</h3>
+ 	<% for car in Car.featured %>
+ 		<%= link_to car.name, car %><br />
+ 		Discount: <%= number_to_percentage car.discount %>
+	 	<% if car.pictures.exists? %>
+	    	<%= link_to image_tag(car.pictures.first.image.url, :width => 200), car  %>
+	    <% end %>
+	    <br />
+ 	<% end %>

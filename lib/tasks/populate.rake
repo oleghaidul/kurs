@@ -6,20 +6,56 @@ namespace :db do
     require 'populator'
     require 'faker'
     
-    [Make, Model, Car, News, Movie, Comment].each(&:delete_all)
+    [Category, Manufacturer, Option, Product, Make, Model, Car, News, Movie, Comment, Review].each(&:delete_all)
+
+
+    Category.populate 10 do |category|
+      category.name = Populator.words(2).titleize
+      category.description = Populator.sentences(5)
+
+      Product.populate 20 do |product|
+        product.name = Populator.words(2).titleize
+        product.category_id = category.id
+        product.assignment = Populator.words(2).titleize
+        product.design = Populator.words(2).titleize
+        product.construction = Populator.words(2).titleize
+        product.price = 100..10000
+        product.description = Populator.sentences(5)
+        product.manufacturer_id = 1..10
+
+        Review.populate 10 do |review|
+          review.name = Populator.words(3).titleize
+          review.body = Populator.sentences(5)
+          review.reviewable_type = Product.name
+          review.reviewable_id = product.id
+          review.user_id = 1..5
+        end
+
+      end
+
+    end
+
+    Manufacturer.populate 10 do |m|
+      m.name = Populator.words(2).titleize
+      m.description = Populator.sentences(5)
+
+      Comment.populate 10 do |comment|
+        comment.title = Populator.words(3).titleize
+        comment.body = Populator.sentences(5)
+        comment.commentable_type = Manufacturer.name
+        comment.commentable_id = m.id
+        comment.user_id = 1..5
+      end
+
+    end
 
     Movie.populate 30 do |movie|
       movie.name = ["X-MEN", "SPIDER MAN 2", "SPIDER MAN 3", "VALKYRIE", "GLADIATOR", "ICE AGE", 
                     "TRANSFORMERS", "MAGNETO", "KUNG FU PANDA", "EAGLE EYE", "NARNIA", 
                     "ANGELS & DEMONS", "HOUSE", "VACANCY", "MIRRORS", "THE KINGDOM", 
                     "MOTIVES", "PRESTIGE"]
-      movie.photo = ["movies/movie1.jpg", "movies/movie2.jpg", "movies/movie3.jpg", 
-                      "movies/movie4.jpg", "movies/movie5.jpg", "movies/movie6.jpg", 
-                      "movies/movie7.jpg", "movies/movie8.jpg", "movies/movie9.jpg", 
-                      "movies/movie10.jpg", "movies/movie11.jpg", "movies/movie12.jpg", 
-                      "movies/movie13.jpg", "movies/movie14.jpg", "movies/movie15.jpg", 
-                      "movies/movie16.jpg", "movies/movie17.jpg", "movies/movie18.jpg"]
-      movie.description = Faker::Lorem.paragraphs(5)
+      
+      movie.description = Populator.sentences(5)
       movie.genre = ["thriller", "action", "comedy"]
       movie.year = [1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011]
       movie.time = [199, 200, 200, 200, 200, 204, 205, 206, 207, 208, 209, 200, 201]
@@ -28,7 +64,7 @@ namespace :db do
 
       Comment.populate 10 do |comment|
         comment.title = Populator.words(3).titleize
-        comment.body = Faker::Lorem.paragraphs(3)
+        comment.body = Populator.sentences(5)
         comment.commentable_type = Movie.name
         comment.commentable_id = movie.id
         comment.user_id = 1..5
@@ -36,7 +72,7 @@ namespace :db do
 
       Review.populate 10 do |review|
         review.name = Populator.words(3).titleize
-        review.body = Faker::Lorem.paragraphs(3)
+        review.body = Populator.sentences(5)
         review.reviewable_type = Movie.name
         review.reviewable_id = movie.id
         review.user_id = 1..5
@@ -46,17 +82,16 @@ namespace :db do
 
     News.populate 30 do |news|
       news.name = Populator.words(3..10).titleize
-      news.body = Faker::Lorem.paragraphs(20)
+      news.body = Populator.sentences(5)
       news.user_id = [1, 2, 3, 4, 5, 6, 7, 8]
       news.news_type = ["local", "world", "business", "sports", 
                         "entertainment", "science", "health", "cars", 
                         "movies", "games"]
-      news.photo = ["images/news/1.gif", "images/news/2.gif", "images/news/3.gif", 
-                    "images/news/4.gif", "images/news/5.gif"]
+      
 
       Comment.populate 10 do |comment|
         comment.title = Populator.words(3).titleize
-        comment.body = Faker::Lorem.paragraphs(3)
+        comment.body = Populator.sentences(5)
         comment.commentable_type = News.name
         comment.commentable_id = news.id
         comment.user_id = [1, 2, 3, 4, 5]
@@ -73,17 +108,17 @@ namespace :db do
                     "Freightliner", "Ford Truck", "Ford", "Fiat", "Ferrari", "Dodge Truck", "Dodge", 
                     "Chrysler", "Chevrolet Truck", "Chevrolet", "Cadillac", "Buick", "BMW", 
                     "Bentley", "Audi", "Aston Martin"]
-        make.description = Faker::Lorem.paragraphs(3)
+        make.description = Populator.sentences(5)
 
         Model.populate 10 do |model|
           model.name = Populator.words(1).titleize
           model.make_id = make.id
-          model.description = Faker::Lorem.paragraphs(3)
+          model.description = Populator.sentences(5)
 
           Car.populate 10 do |car|
             car.name = Populator.words(3..5).titleize
             car.model_id = model.id
-            car.description = Faker::Lorem.paragraphs(3)
+            car.description = Populator.sentences(5)
             car.car_type = ["new", "used"]
             car.horsepower = [100, 200, 300, 320, 220, 150, 175, 88]
             car.seating_capacity = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
@@ -100,7 +135,7 @@ namespace :db do
 
             Comment.populate 10 do |comment|
               comment.title = Populator.words(3).titleize
-              comment.body = Faker::Lorem.paragraphs(3)
+              comment.body = Populator.sentences(5)
               comment.commentable_type = Car.name
               comment.commentable_id = car.id
               comment.user_id = [1, 2, 3, 4, 5]
@@ -108,7 +143,7 @@ namespace :db do
 
             Review.populate 10 do |review|
               review.name = Populator.words(3).titleize
-              review.body = Faker::Lorem.paragraphs(3)
+              review.body = Populator.sentences(5)
               review.reviewable_type = Car.name
               review.reviewable_id = car.id
               review.user_id = 1..5

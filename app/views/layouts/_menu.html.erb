@@ -3,7 +3,7 @@
 	  <li><%= link_to "Home", root_path, :class => ('active' if action_name == "home") %>
 	  <li><%= link_to "Our News", our_news_path, :class => ('active' if action_name == "news") %></li>
 	  <li><%= link_to "Our Services", our_services_path, :class => ('active' if action_name == "services") %></li>
-	  <li><a href="products.html">Our Products</a></li>
+	  <li><%= link_to "Our Products", our_products_path, :class => ('active' if action_name == "products") %></li>
 	  <li class="last-item"><a href="contacts.html">Contact Us</a></litarget>
 	</ul>
 </nav>

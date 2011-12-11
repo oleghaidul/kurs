@@ -2,3 +2,7 @@
 <%= render :partial => 'cars/right_show' %>
 
 <%= render @options %>
+
+<%= content_for :left do %>
+	<%= render "cars/featured" %> 	
+<% end %>
