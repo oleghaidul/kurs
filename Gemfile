@@ -23,6 +23,9 @@ gem 'acts_as_votable'
 gem 'paperclip'
 
 
+
+
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
